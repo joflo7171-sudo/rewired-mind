@@ -1,0 +1,253 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "copilot-instructions.md",
+      "file_type": "document",
+      "source_file": ".github/copilot-instructions.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "github_copilot_instructions",
+      "community": 0,
+      "community_name": "copilot-instructions.md",
+      "norm_label": "copilot-instructions.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": ".github/copilot-instructions.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "github_copilot_instructions_graphify",
+      "community": 0,
+      "community_name": "copilot-instructions.md",
+      "norm_label": "graphify"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 1,
+      "community_name": "README.md",
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "rewired-mind",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_rewired_mind",
+      "community": 1,
+      "community_name": "README.md",
+      "norm_label": "rewired-mind"
+    },
+    {
+      "label": "index.html",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "index",
+      "community": 2,
+      "community_name": "index.html",
+      "norm_label": "index.html"
+    },
+    {
+      "label": "confidence quiz",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "index_confidence_quiz",
+      "community": 2,
+      "community_name": "index.html",
+      "norm_label": "confidence quiz"
+    },
+    {
+      "label": "quiz scoring",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "L125",
+      "_origin": "ast",
+      "id": "index_quiz_scoring",
+      "community": 2,
+      "community_name": "index.html",
+      "norm_label": "quiz scoring"
+    },
+    {
+      "label": "confidence archetype selection",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "index_archetype_selection",
+      "community": 2,
+      "community_name": "index.html",
+      "norm_label": "confidence archetype selection"
+    },
+    {
+      "label": "result display",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "L180",
+      "_origin": "ast",
+      "id": "index_result_display",
+      "community": 2,
+      "community_name": "index.html",
+      "norm_label": "result display"
+    },
+    {
+      "label": "email submission",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "L200",
+      "_origin": "ast",
+      "id": "index_email_submission",
+      "community": 2,
+      "community_name": "index.html",
+      "norm_label": "email submission"
+    },
+    {
+      "label": "Netlify lead capture",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "index_netlify_lead_capture",
+      "community": 2,
+      "community_name": "index.html",
+      "norm_label": "Netlify lead capture"
+    },
+    {
+      "label": "Gumroad product routing",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "L140",
+      "_origin": "ast",
+      "id": "index_gumroad_routing",
+      "community": 2,
+      "community_name": "index.html",
+      "norm_label": "Gumroad product routing"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".github/copilot-instructions.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "github_copilot_instructions",
+      "target": "github_copilot_instructions_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "readme",
+      "target": "readme_rewired_mind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.html",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "index_confidence_quiz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "computes",
+      "confidence": "EXTRACTED",
+      "source_file": "index.html",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index_confidence_quiz",
+      "target": "index_quiz_scoring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "selects",
+      "confidence": "EXTRACTED",
+      "source_file": "index.html",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index_quiz_scoring",
+      "target": "index_archetype_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "routes",
+      "confidence": "EXTRACTED",
+      "source_file": "index.html",
+      "source_location": "L140",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index_archetype_selection",
+      "target": "index_gumroad_routing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.html",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "index_result_display",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "source_file": "index.html",
+      "source_location": "L200",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index_result_display",
+      "target": "index_email_submission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "submits to",
+      "confidence": "EXTRACTED",
+      "source_file": "index.html",
+      "source_location": "L210",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index_email_submission",
+      "target": "index_netlify_lead_capture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "shows",
+      "confidence": "EXTRACTED",
+      "source_file": "index.html",
+      "source_location": "L180",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index_result_display",
+      "target": "index_gumroad_routing",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "31363bcd4d806bad65ad07934046dfee95160916"
+}

@@ -1,0 +1,52 @@
+{
+  ".github/copilot-instructions.md": {
+    "mtime": 1785605616.0721102,
+    "ast_hash": "ec2dc0dc7bef63488889f34de2f5584d",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1785605392.6031063,
+    "ast_hash": "4475e7fe2bbb850c16e46195dd36fb06",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1785605392.6041062,
+    "ast_hash": "4a9f9820e632ed0c757fb358cb07f628",
+    "semantic_hash": ""
+  },
+  "rewired-mind-free-7-day-confidence-reset.pdf": {
+    "mtime": 1785605392.6311061,
+    "ast_hash": "2fdabd6227c066854bea75961e73a742",
+    "semantic_hash": ""
+  },
+  "media/traffic/covers/discomfort-cover.png": {
+    "mtime": 1785605392.6061063,
+    "ast_hash": "a067d50f8faa6a3780cc833994b0759c",
+    "semantic_hash": ""
+  },
+  "media/traffic/covers/overexplaining-cover.png": {
+    "mtime": 1785605392.6091063,
+    "ast_hash": "2ef252d7cc5ce2d58a38f43e22546d95",
+    "semantic_hash": ""
+  },
+  "rewired-mind-brain.png": {
+    "mtime": 1785605392.615106,
+    "ast_hash": "0662efd52432876592d77614062578a5",
+    "semantic_hash": ""
+  },
+  "rewired-mind-logo.png": {
+    "mtime": 1785605392.6311061,
+    "ast_hash": "2b2b093f9156afa132577c35d5d768ab",
+    "semantic_hash": ""
+  },
+  "media/traffic/stop-overexplaining.mp4": {
+    "mtime": 1785605392.612106,
+    "ast_hash": "bd9d3660b5aa6b4cb938d09a7781f15b",
+    "semantic_hash": ""
+  },
+  "media/traffic/your-brain-is-lying-about-discomfort.mp4": {
+    "mtime": 1785605392.615106,
+    "ast_hash": "d8275b9de366e72609e2d48074d3c757",
+    "semantic_hash": ""
+  }
+}
