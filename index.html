@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Take the free 2-minute Rewired Mind Confidence Quiz and get your free 7-Day Confidence Reset.">
+  <title>Free Confidence Quiz | Rewired Mind</title>
+  <style>
+    :root{--black:#060606;--panel:#111;--gold:#d5a31a;--gold2:#ffd05a;--white:#f7f7f7;--muted:#aaa;--line:rgba(213,163,26,.32)}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 8%,#221700 0,#080808 32%,#030303 100%);color:var(--white);font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+    header{padding:22px 20px;border-bottom:1px solid var(--line);text-align:center}.brand{letter-spacing:7px;font-weight:800;font-size:13px;color:#fff}.brand span{color:var(--gold)}
+    main{width:min(720px,100%);margin:auto;padding:48px 20px 80px}.screen{display:none}.screen.active{display:block}.center{text-align:center}
+    .eyebrow{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:4px;text-transform:uppercase;margin-bottom:18px}
+    h1,h2{font-family:Impact,"Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:2px;margin:0 0 18px}h1{font-size:clamp(42px,9vw,70px);line-height:.96}h1 span,h2 span{color:var(--gold)}h2{font-size:clamp(32px,7vw,52px)}
+    .lead{max-width:610px;margin:0 auto 30px;color:#ccc;font-size:18px;line-height:1.65}.micro{font-size:12px;color:#888;margin-top:15px}
+    .brain{width:min(280px,72vw);margin:18px auto 8px;filter:drop-shadow(0 0 24px rgba(213,163,26,.28))}
+    .brain img{display:block;width:100%;height:auto}
+    button,.btn{display:inline-block;border:0;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#090909;font-weight:900;text-transform:uppercase;letter-spacing:1.3px;padding:17px 27px;cursor:pointer;text-decoration:none;font-size:14px}.btn.secondary,button.secondary{background:transparent;color:var(--gold2);border:1px solid var(--gold)}
+    .progress-meta{display:flex;justify-content:space-between;color:#aaa;font-size:12px;text-transform:uppercase;letter-spacing:1px}.track{height:5px;background:#222;margin:10px 0 28px;border-radius:9px}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:.25s;border-radius:9px}
+    .card{background:linear-gradient(145deg,#151515,#0d0d0d);border:1px solid var(--line);border-radius:14px;padding:clamp(22px,5vw,36px);box-shadow:0 18px 60px #000}.question{font-family:Georgia,serif;font-size:clamp(22px,4vw,28px);line-height:1.35;margin-bottom:24px}
+    .options{display:grid;gap:12px}.option{width:100%;text-align:left;background:#171717;border:1px solid #303030;color:#eee;text-transform:none;letter-spacing:0;font-weight:600;padding:16px 17px;display:flex;gap:14px}.option:hover,.option.selected{border-color:var(--gold);background:#241b08}.letter{color:var(--gold2);font-weight:900}
+    .nav{display:flex;gap:12px;margin-top:22px}.nav button{flex:1}.nav button:disabled{opacity:.35;cursor:not-allowed}
+    .badge{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:grid;place-items:center;font-size:42px;color:#111;margin:0 auto 22px;box-shadow:0 0 40px rgba(213,163,26,.35)}
+    .result-copy{font-size:17px;line-height:1.7;color:#ccc}.signup{margin:28px 0 14px;padding:25px;background:#121212;border:1px solid var(--line);border-radius:12px}.signup h3,.offer h3{margin:0 0 9px;font-size:21px}.email-row{display:flex;gap:10px;margin-top:18px}.email-row input{flex:1;min-width:0;background:#060606;border:1px solid #444;border-radius:8px;color:#fff;padding:16px;font-size:16px}.status{font-size:13px;margin-top:11px;min-height:18px;color:var(--gold2)}
+    .reward,.offer{display:none;margin-top:20px;padding:25px;border-radius:12px}.reward{background:#f3ead1;color:#171717;border:1px solid var(--gold)}.reward.show,.offer.show{display:block}.reward h3{margin-top:0}.offer{background:#111;border:1px solid var(--line)}.price{color:var(--gold2);font-weight:900}.benefits{padding:0;list-style:none;line-height:1.8}.benefits li:before{content:"✓ ";color:var(--gold);font-weight:bold}
+    footer{text-align:center;color:#666;font-size:11px;letter-spacing:2px;padding:25px;border-top:1px solid #1c1c1c}@media(max-width:570px){.email-row{flex-direction:column}.nav{flex-direction:column}main{padding-top:34px}}
+  </style>
+</head>
+<body>
+<form name="confidence-quiz-leads" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input type="email" name="email"><input name="archetype">
+</form>
+<header><div class="brand">REWIRED <span>◉</span> MIND</div></header>
+<main>
+  <section id="intro" class="screen active center">
+    <div class="eyebrow">Free 2-Minute Quiz</div><h1>What Is Blocking<br>Your <span>Confidence?</span></h1>
+    <div class="brain"><img src="rewired-mind-logo.png" alt="Rewired Mind"></div>
+    <p class="lead">Answer five questions to uncover your Confidence Archetype—and receive a free 7-Day Confidence Reset matched to your next step.</p>
+    <button id="start">Take the Free Quiz →</button><div class="micro">5 questions • approximately 2 minutes • free guide included</div>
+  </section>
+
+  <section id="quiz" class="screen">
+    <div class="progress-meta"><span id="qcount">Question 1 of 5</span><span id="pct">0%</span></div><div class="track"><div id="fill" class="fill"></div></div>
+    <div class="card"><div id="question" class="question"></div><div id="options" class="options"></div></div>
+    <div class="nav"><button id="back" class="secondary">← Back</button><button id="next" disabled>Next →</button></div>
+  </section>
+
+  <section id="result" class="screen">
+    <div class="center"><div id="emoji" class="badge"></div><div class="eyebrow">Your Confidence Archetype</div><h2 id="resultTitle"></h2><p id="resultCopy" class="result-copy"></p></div>
+    <div class="signup">
+      <h3>Get your free 7-Day Confidence Reset</h3>
+      <p>Enter your email to receive the guide and practical confidence tips from Rewired Mind.</p>
+      <div class="email-row"><input id="email" type="email" autocomplete="email" placeholder="Your email address"><button id="send">Send My Free Reset</button></div>
+      <div id="status" class="status"></div>
+    </div>
+    <div id="reward" class="reward"><h3>Your reset is ready.</h3><p>Download it now and begin Day 1 today.</p><a class="btn" href="Rewired-Mind-Free-7-Day-Confidence-Reset.pdf" download>Download My Free Reset</a></div>
+    <div id="offer" class="offer"><div class="eyebrow">Your Matched Next Step</div><h3 id="offerTitle"></h3><p id="offerCopy"></p><p id="offerPrice" class="price"></p><a id="offerLink" class="btn" href="#" target="_blank" rel="noopener">See My Recommended Guide →</a></div>
+    <div class="center" style="margin-top:24px"><button id="retake" class="secondary">Retake Quiz</button></div>
+  </section>
+</main>
+<footer>© 2026 REWIRED MIND • PERSONAL-DEVELOPMENT EDUCATION</footer>
+<script>
+const questions=[
+ {q:"When you walk into a room full of new people, what's your first thought?",a:[["I belong here—let me introduce myself.",4],["I need to prove I deserve to be here.",2],["I hope no one notices me right away.",1],["I wonder what everyone thinks of me.",1]]},
+ {q:"How do you handle criticism or rejection?",a:[["I use it as fuel—feedback makes me stronger.",4],["I brush it off, but it stings for a while.",3],["It haunts me and I replay it for days.",1],["I avoid situations where it could happen.",1]]},
+ {q:"When you set a big goal, your first feeling is…",a:[["Excitement—I'm already mapping the steps.",4],["Motivation, but doubt creeps in fast.",3],["Overwhelm—where would I even begin?",1],["Those goals are meant for other kinds of people.",1]]},
+ {q:"How often do you speak your mind in group settings?",a:[["Always—I have value to add and I say it.",4],["When I feel ready, but I overthink it first.",3],["Rarely—I wait until someone else says it.",1],["I stay quiet and regret it afterward.",1]]},
+ {q:"The biggest thing standing between me and confidence is…",a:[["Nothing—I'm already building it every day.",4],["My fear of what other people will think.",2],["My own inner voice telling me I'm not enough.",1],["A past version of myself I can't seem to escape.",1]]}
+];
+const routes={
+ awakened:{min:16,emoji:"👑",title:"The Awakened",copy:"Your confidence is strong. Your next level is consistency. You already know how to speak up, take action and trust yourself. Now the goal is making that confidence automatic on difficult days—not only easy ones.",product:"Rewired: The Discipline Code",desc:"Turn confidence into daily discipline, follow-through and consistent action even when motivation drops.",price:"$17",url:"https://therewiredmind.gumroad.com/l/kgefjk?utm_source=confidence_quiz&utm_medium=result&utm_campaign=quiz_funnel&utm_content=awakened"},
+ builder:{min:11,emoji:"🔥",title:"The Builder",copy:"You have confidence, but doubt keeps interrupting it. You can see the stronger version of yourself, yet pressure, criticism or uncertainty can pull you back into old patterns. You are closer than you think.",product:"The Confidence Reset System",desc:"Build confidence that does not disappear under pressure with the complete reset process, workbooks, scripts and tracking tools.",price:"$47",url:"https://therewiredmind.gumroad.com/l/confidence-reset-system?utm_source=confidence_quiz&utm_medium=result&utm_campaign=quiz_funnel&utm_content=builder"},
+ rising:{min:7,emoji:"⚡",title:"The Rising",copy:"Your confidence is ready to rise. Hesitation and outside opinions still influence how you show up, but that is a learned pattern—not a permanent personality.",product:"The Confidence Switch",desc:"Make your first confidence shift with a simple, focused way to interrupt hesitation and begin acting from self-trust.",price:"$9",url:"https://therewiredmind.gumroad.com/l/bwxprw?utm_source=confidence_quiz&utm_medium=result&utm_campaign=quiz_funnel&utm_content=rising"},
+ warrior:{min:0,emoji:"🛡️",title:"The Warrior",copy:"You are not broken. Your mind has been protecting you. Overthinking, fear and self-doubt may have helped you survive difficult experiences, but they do not have to control your next chapter.",product:"The Anxiety Exit",desc:"Quiet the anxious thought loops that keep pulling you back and regain control without pretending fear does not exist.",price:"$9",url:"https://therewiredmind.gumroad.com/l/qecbe?utm_source=confidence_quiz&utm_medium=result&utm_campaign=quiz_funnel&utm_content=warrior"}
+};
+let current=0,answers=Array(questions.length).fill(null),route=null;
+const $=id=>document.getElementById(id);function screen(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');scrollTo({top:0,behavior:'smooth'})}
+function render(){const item=questions[current];$('question').textContent=item.q;$('options').innerHTML='';item.a.forEach((v,i)=>{const b=document.createElement('button');b.className='option'+(answers[current]===i?' selected':'');b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${v[0]}</span>`;b.onclick=()=>{answers[current]=i;render()};$('options').appendChild(b)});$('qcount').textContent=`Question ${current+1} of ${questions.length}`;$('pct').textContent=`${current*20}%`;$('fill').style.width=`${current*20}%`;$('back').style.visibility=current?'visible':'hidden';$('next').disabled=answers[current]===null;$('next').textContent=current===questions.length-1?'See My Results ✶':'Next →'}
+function showResult(){let score=answers.reduce((sum,v,i)=>sum+questions[i].a[v][1],0);route=score>=16?routes.awakened:score>=11?routes.builder:score>=7?routes.rising:routes.warrior;$('emoji').textContent=route.emoji;$('resultTitle').innerHTML=route.title.replace('The ','The <span>')+'</span>';$('resultCopy').textContent=route.copy;$('offerTitle').textContent=route.product;$('offerCopy').textContent=route.desc;$('offerPrice').textContent=route.price;$('offerLink').href=route.url;$('reward').classList.remove('show');$('offer').classList.remove('show');$('status').textContent='';screen('result')}
+$('start').onclick=()=>{current=0;answers.fill(null);render();screen('quiz')};$('back').onclick=()=>{if(current){current--;render()}};$('next').onclick=()=>{if(answers[current]===null)return;if(current<questions.length-1){current++;render()}else showResult()};
+$('send').onclick=async()=>{const email=$('email').value.trim();if(!/^\S+@\S+\.\S+$/.test(email)){$('status').textContent='Please enter a valid email address.';return}$('send').disabled=true;$('status').textContent='Preparing your reset…';try{const payload=new URLSearchParams({'form-name':'confidence-quiz-leads',email,archetype:route.title});const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:payload.toString()});if(!res.ok)throw new Error('subscribe');$('status').textContent='Success—your free reset is ready below.';$('reward').classList.add('show');$('offer').classList.add('show');$('email').value=''}catch(e){$('status').textContent='We could not save your request right now. Please try again.'}finally{$('send').disabled=false}};
+$('retake').onclick=()=>screen('intro');
+  </script>
+</body>
+</html>
