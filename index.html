@@ -25,6 +25,23 @@
     .reward,.offer{display:none;margin-top:20px;padding:25px;border-radius:12px}.reward{background:#f3ead1;color:#171717;border:1px solid var(--gold)}.reward.show,.offer.show{display:block}.reward h3{margin-top:0}.offer{background:#111;border:1px solid var(--line)}.price{color:var(--gold2);font-weight:900}.benefits{padding:0;list-style:none;line-height:1.8}.benefits li:before{content:"✓ ";color:var(--gold);font-weight:bold}
     footer{text-align:center;color:#666;font-size:11px;letter-spacing:2px;padding:25px;border-top:1px solid #1c1c1c}@media(max-width:570px){.email-row{flex-direction:column}.nav{flex-direction:column}main{padding-top:34px}}
   </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '726762612588128');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=726762612588128&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 <form name="confidence-quiz-leads" data-netlify="true" netlify-honeypot="bot-field" hidden>
@@ -78,7 +95,7 @@ const $=id=>document.getElementById(id);function screen(id){document.querySelect
 function render(){const item=questions[current];$('question').textContent=item.q;$('options').innerHTML='';item.a.forEach((v,i)=>{const b=document.createElement('button');b.className='option'+(answers[current]===i?' selected':'');b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${v[0]}</span>`;b.onclick=()=>{answers[current]=i;render()};$('options').appendChild(b)});$('qcount').textContent=`Question ${current+1} of ${questions.length}`;$('pct').textContent=`${current*20}%`;$('fill').style.width=`${current*20}%`;$('back').style.visibility=current?'visible':'hidden';$('next').disabled=answers[current]===null;$('next').textContent=current===questions.length-1?'See My Results ✶':'Next →'}
 function showResult(){let score=answers.reduce((sum,v,i)=>sum+questions[i].a[v][1],0);route=score>=16?routes.awakened:score>=11?routes.builder:score>=7?routes.rising:routes.warrior;$('emoji').textContent=route.emoji;$('resultTitle').innerHTML=route.title.replace('The ','The <span>')+'</span>';$('resultCopy').textContent=route.copy;$('offerTitle').textContent=route.product;$('offerCopy').textContent=route.desc;$('offerPrice').textContent=route.price;$('offerLink').href=route.url;$('reward').classList.remove('show');$('offer').classList.remove('show');$('status').textContent='';screen('result')}
 $('start').onclick=()=>{current=0;answers.fill(null);render();screen('quiz')};$('back').onclick=()=>{if(current){current--;render()}};$('next').onclick=()=>{if(answers[current]===null)return;if(current<questions.length-1){current++;render()}else showResult()};
-$('send').onclick=async()=>{const email=$('email').value.trim();if(!/^\S+@\S+\.\S+$/.test(email)){$('status').textContent='Please enter a valid email address.';return}$('send').disabled=true;$('status').textContent='Preparing your reset…';try{const payload=new URLSearchParams({'form-name':'confidence-quiz-leads',email,archetype:route.title});const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:payload.toString()});if(!res.ok)throw new Error('subscribe');$('status').textContent='Success—your free reset is ready below.';$('reward').classList.add('show');$('offer').classList.add('show');$('email').value=''}catch(e){$('status').textContent='We could not save your request right now. Please try again.'}finally{$('send').disabled=false}};
+$('send').onclick=async()=>{const email=$('email').value.trim();if(!/^\S+@\S+\.\S+$/.test(email)){$('status').textContent='Please enter a valid email address.';return}$('send').disabled=true;$('status').textContent='Preparing your reset…';try{const payload=new URLSearchParams({'form-name':'confidence-quiz-leads',email,archetype:route.title});const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:payload.toString()});if(!res.ok)throw new Error('subscribe');$('status').textContent='Success—your free reset is ready below.';$('reward').classList.add('show');$('offer').classList.add('show');if(typeof fbq!=='undefined')fbq('track','Lead');$('email').value=''}catch(e){$('status').textContent='We could not save your request right now. Please try again.'}finally{$('send').disabled=false}};
 $('retake').onclick=()=>screen('intro');
   </script>
 </body>
