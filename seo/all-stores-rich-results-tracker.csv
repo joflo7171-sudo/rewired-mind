@@ -1,0 +1,18 @@
+page,url,schema_type,status_2026-09-24_audit,source_action,schema_fields_changed,edition_url_status,direct_pdf_offer,preview_validation,production
+anxiety-exit,https://rewiredmind.org/books/anxiety-exit/,Product,no fix needed,none,none,ok,n/a,PASS (unchanged),unchanged
+anxious-texting,https://rewiredmind.org/books/anxious-texting/,Book,no fix needed,none,none,FOLLOW-UP: visible Kindle B0HHPFJPNP has no Offer,n/a,PASS (unchanged),unchanged
+complete-library,https://rewiredmind.org/books/complete-library/,Book,no fix needed,none,none,ok,n/a,PASS (unchanged),unchanged
+confidence-blueprint,https://rewiredmind.org/books/confidence-blueprint/,Book,no fix needed,none,none,ok,n/a,PASS (unchanged),unchanged
+confidence-reset-system,https://rewiredmind.org/books/confidence-reset-system/,Product,$0 Amazon shipping,FIXED,removed offers[1].shippingDetails (B0H2CK86XF) + offers[2].shippingDetails (B0H38CL299); Gumroad offer kept,ok,n/a,PASS (source),locked - not published
+confident-in-60-seconds,https://rewiredmind.org/books/confident-in-60-seconds/,Book,$0 Amazon shipping,FIXED,removed offers[0..2].shippingDetails (B0HCW3J2VJ / B0HCWJL7Y6 / B0HHXLR3WP),ok,n/a,PASS (source),locked - not published
+decision-paralysis-in-love,https://rewiredmind.org/books/decision-paralysis-in-love/,Book,no fix needed,none,none,FOLLOW-UP: visible Kindle B0HHPS6HYB has no Offer,n/a,PASS (unchanged),unchanged
+identity-shift,https://rewiredmind.org/books/identity-shift/,Book,no fix needed,none,none,ok,n/a,PASS (unchanged),unchanged
+overthinking-solutions,https://rewiredmind.org/books/overthinking-solutions/,Book,no fix needed,none,none,ok,n/a,PASS (unchanged),unchanged
+rewired-dating-confidence-guide,https://rewiredmind.org/books/rewired-dating-confidence-guide/,Book,$0 Amazon shipping,FIXED,removed workExample[0..2].offers.shippingDetails (B0H8RVD6SH / B0HBG8V45V / books2read 3LWAlD),ok,UNVERIFIED - left unmarked (Gumroad /l/rewired-dating-confidence-guide $14.99 visible),PASS (source),locked - not published
+rumination-reset,https://rewiredmind.org/books/rumination-reset/,Book,$0 Amazon shipping,FIXED,removed workExample[0].offers.shippingDetails (B0HH89Q8FL),ok,n/a,PASS (source),locked - not published
+stop-overthinking-in-7-days,https://rewiredmind.org/books/stop-overthinking-in-7-days/,Book,$0 Amazon shipping,FIXED,removed offers[0..1].shippingDetails (B0H3HTMR41 / B0H3TRFP7K),ok,UNVERIFIED - left unmarked (Gumroad /l/stop-overthinking-in-7-days $2.99 visible),PASS (source),locked - not published
+stop-the-loop,https://rewiredmind.org/books/stop-the-loop/,Book,$0 Amazon shipping,FIXED,removed workExample[0..1].offers.shippingDetails (B0HC573F98 / B0HCPHDZ6F),ok,n/a,PASS (source),locked - not published
+the-confidence-habit,https://rewiredmind.org/books/the-confidence-habit/,Book,$0 Amazon shipping,FIXED,removed workExample[0..1].offers.shippingDetails (B0HCN25GLM / B0HCRJXJM6),RESOLVED no change: paperback schema URL = same ASIN as visible link (visible adds Amazon Attribution maas params; kept for analytics),UNVERIFIED - left unmarked (Gumroad /l/the-confidence-habit $3.99 visible),PASS (source),locked - not published
+the-confidence-switch,https://rewiredmind.org/books/the-confidence-switch/,Book,$0 Amazon shipping,FIXED,removed workExample[0..1].offers.shippingDetails (B0H8W81RG9 / B0H996CLPJ),ok,n/a,PASS (source),locked - not published
+the-jealousy-spiral,https://rewiredmind.org/books/the-jealousy-spiral/,Book,no fix needed,none,none,FOLLOW-UP: visible Kindle B0HHPN4GMQ has no Offer,n/a,PASS (unchanged),unchanged
+transformation-system,https://rewiredmind.org/books/transformation-system/,Product,$0 Amazon shipping,FIXED,removed offers[1].shippingDetails (B0HJNDR6GH); Gumroad offer kept,ok,n/a,PASS (source),locked - not published
