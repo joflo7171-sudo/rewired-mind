@@ -82,7 +82,7 @@ Revised in `outreach-batch-1.md`. **The 28 Aug episode reference has been remove
 - **Rules checked:** submissions only through the portal (no email), no posts for dating sites, no medical advice, and nothing promotional in the body. You may republish your piece 48 hours after they publish it, so they don't take exclusive ownership.
 - **Links:** there are **none in the body**. The bio link to https://rewiredmind.org/guides/stop-overthinking-relationships/ is only included **if the submission form has a bio or website field**. Their editorial guidelines don't say either way, so check the form before submitting.
 - **Why this URL:** the article teaches four of the nine steps from that guide in new wording. The guide gives readers the rest of the system, so it's a genuinely useful next step, not an ad.
-- **Word count:** about 1,000.
+- **Word count:** about 720 (within the 500–1,500 limit).
 
 ### Say the Smaller Thing: A Practical Way to Stop Overthinking Your Relationship
 
