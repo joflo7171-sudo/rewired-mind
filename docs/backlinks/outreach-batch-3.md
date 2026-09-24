@@ -16,7 +16,7 @@ Prepared 24 Sep 2026. Continues from `outreach-batch-1.md` and `outreach-batch-2
 
 ---
 
-## 1. Introvert, Dear — draft written, ON HOLD
+## 1. Introvert, Dear — ON HOLD — SUBMISSIONS CLOSED (not an active opportunity)
 
 **Why it's on hold:**
 - **Submissions are closed.** Don't send anything until their page says they're open again.
@@ -125,6 +125,8 @@ No change. Featured/HARO, Source of Sources and Qwoted stay pending until you co
 
 ## 3. Podcast pitch — FINAL — ✅ READY FOR APPROVAL (not sent)
 
+**Batch 4:** saved to Gmail as an **unsent draft** to speaking@jonnypardoe.com (24 Sep). The guide URL is now in the body so it can't get lost.
+
 - **To:** speaking@jonnypardoe.com (listed in the podcast's RSS feed)
 - **Target URL (show notes):** https://rewiredmind.org/guides/stop-caring-what-people-think/
 - **Tailored to Jonny's show using only verifiable facts:** "Reclaim your voice" is in the titles of four of his episodes between 28 Aug and 18 Sep (checked in the RSS feed). **The 28 Aug episode reference is removed, and no episode is claimed as listened to.**
@@ -143,7 +145,8 @@ No change. Featured/HARO, Source of Sources and Qwoted stay pending until you co
 > 2. **An opinion filter:** choosing whose criticism deserves real weight, so everyone else's reactions become information, not instructions.
 > 3. **Harmless disapproval reps:** small, low-stakes practice ("I'd prefer the other option") that makes being misunderstood survivable.
 >
-> Everything is practical and usable the same day. For show notes, I'd point listeners to a free guide rather than anything paid.
+> Everything is practical and usable the same day. For show notes, I'd point listeners to a free guide rather than anything paid:
+> https://rewiredmind.org/guides/stop-caring-what-people-think/
 >
 > Happy to fit around your recording schedule, and I can send a bio and headshot.
 >
