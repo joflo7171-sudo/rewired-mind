@@ -147,6 +147,8 @@ You'll still care, and you'll still sometimes notice a short reply and feel the 
 
 ## Other open item found in Gmail
 
+> **Update (batch 3):** Psychreg published the article on 8 Sep with a followed homepage link, so no follow-up is needed. See `outreach-batch-3.md` §5.
+
 - **Psychreg:** you sent "Approach Anxiety as a Threat Response" to dennis@psychreg.org on **7 Sep 2026**, and there's been no reply yet. A short, polite follow-up would be reasonable around 5 Oct (4 weeks after submission). I can draft it if you want, but I won't send it.
 
 ---

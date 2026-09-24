@@ -186,6 +186,8 @@ Prepared 24 Sep 2026. **Nothing here has been sent, submitted, or posted.** Each
 - **Target URL (show notes):** https://rewiredmind.org/guides/stop-caring-what-people-think/
 - **Why this URL:** The show's recurring theme is "reclaim your voice" and "being seen." This guide is about exactly that: mind-reading, approval-seeking and learning to tolerate being misunderstood. Jonny's recent solo episodes already cover second-guessing and waiting to feel confident, so this topic adds something new rather than repeating them. He lists guest links in show notes, and a free guide is an easier link to give than a book page. **Add the homepage as a second link if he includes more than one.**
 
+**Superseded:** the final version is in `outreach-batch-3.md` §3 (READY FOR APPROVAL).
+
 **Status (Batch 2, 24 Sep):** Revised. The 28 Aug episode reference has been removed because no one has confirmed listening to it. Ready for your approval. **Not sent.**
 
 **Subject:** Guest idea: the "mind-reading" habit that keeps people quiet
