@@ -80,6 +80,8 @@ Prepared 24 Sep 2026. **Nothing here has been sent, submitted, or posted.** Each
 
 ## Draft 4 — Tiny Buddha submission (cover email + essay framework)
 
+> **Batch 2 status: ON HOLD, and the topic below is superseded.** Gmail shows you already sent Tiny Buddha a replaying-conversations essay on 7 Sep ("How I Stopped Rehearsing Conversations That Never Happened"). There's been no reply after 17 days. Tiny Buddha replies within two weeks if a post is accepted and asks you to try again with a *different* post. Don't resubmit this topic. See `outreach-batch-2.md` for the new topic and the story details needed.
+
 - **Target URL (bio only):** https://rewiredmind.org/guides/stop-replaying-conversations/
 - **Why this URL:** Tiny Buddha forbids promoting your book in the body and says contributors do best with "a free resource in their bio." A free, practical guide on the same theme as the essay is the most natural link and the least salesy. Replaying conversations is gender-neutral, which the guidelines require, and it's something almost every Tiny Buddha reader recognises.
 - **Link policy (verified):** The bio is ≤75 words and may include "as many links as you'd like." Keep it to one or two. We don't know whether the bio links are followed or nofollow, so don't ask. The traffic and credibility are worth it either way.
@@ -184,7 +186,7 @@ Prepared 24 Sep 2026. **Nothing here has been sent, submitted, or posted.** Each
 - **Target URL (show notes):** https://rewiredmind.org/guides/stop-caring-what-people-think/
 - **Why this URL:** The show's recurring theme is "reclaim your voice" and "being seen." This guide is about exactly that: mind-reading, approval-seeking and learning to tolerate being misunderstood. Jonny's recent solo episodes already cover second-guessing and waiting to feel confident, so this topic adds something new rather than repeating them. He lists guest links in show notes, and a free guide is an easier link to give than a book page. **Add the homepage as a second link if he includes more than one.**
 
-⚠️ **Before sending:** listen to at least one recent episode (the 28 Aug solo episode is the closest to your topic) and keep the line that references it **only if it's true**.
+**Status (Batch 2, 24 Sep):** Revised. The 28 Aug episode reference has been removed because no one has confirmed listening to it. Ready for your approval. **Not sent.**
 
 **Subject:** Guest idea: the "mind-reading" habit that keeps people quiet
 
@@ -192,17 +194,17 @@ Prepared 24 Sep 2026. **Nothing here has been sent, submitted, or posted.** Each
 >
 > I'm Jonathan Florence, author and creator of Rewired Mind, which publishes practical resources on confidence, overthinking, self-trust and relationships.
 >
-> [Only keep this if true: I listened to your 28 August episode on second-guessing and self-trust, and the idea that ___ stuck with me.] I'd love to come on and pick up a related thread your listeners will recognise: **why we stay quiet because of what we *think* people are thinking.**
+> I'd love to come on the show to talk about something many of your listeners will recognise: **staying quiet because of what we *think* other people are thinking.**
 >
-> A few things we could dig into:
+> Three things we could cover:
 >
-> - **Mind-reading vs. facts.** Splitting a tense moment into what a camera would record ("she paused") and the story we add ("she thinks I'm awkward"), and why we act on the story.
-> - **An opinion filter.** Deciding in advance whose criticism actually deserves weight, so that everyone else's reactions are information, not instructions.
-> - **Small doses of harmless disapproval.** Practising at a 3/10 (saying "I prefer the other option," declining without a long defence) so being misunderstood becomes survivable.
+> - **Mind-reading vs. facts:** splitting a tense moment into what a camera would record ("she paused") and the story we add ("she thinks I'm awkward"), and why we act on the story.
+> - **An opinion filter:** deciding in advance whose criticism deserves real weight, so that everyone else's reactions become information, not instructions.
+> - **Small doses of harmless disapproval:** practising at a 3/10 (saying "I prefer the other option," declining without a long defence) so being misunderstood becomes survivable.
 >
-> I'm not a therapist, and I don't pretend to be. What I do is take well-established ideas from psychology and turn them into short, practical systems people can use the same day, which fits the "stories and tips that actually work" feel of your show.
+> My focus is turning well-established ideas from psychology into short, practical steps people can use the same day.
 >
-> Happy to work around your schedule and send a short bio and headshot. If it helps listeners, I'd point them to a free guide rather than anything paid.
+> Happy to work around your schedule and send a bio and headshot. For the show notes, I'd point listeners to a free guide rather than anything paid.
 >
 > Thanks for considering it,
 > Jonathan Florence
