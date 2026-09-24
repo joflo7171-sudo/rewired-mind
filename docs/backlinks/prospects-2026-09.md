@@ -18,7 +18,7 @@ Research limits: the Rewired Mind site, Lifehack, Feedspot and several prospect 
 | 6 | https://rewiredmind.org/books/rewired-dating-confidence-guide/ | Men's and dating confidence outlets |
 | — | https://rewiredmind.org/research/ | Proof of credibility in pitches to journalists and editors |
 
-Only one guide URL, `/guides/stop-overthinking-relationships/`, was confirmed through search. Self-trust, rejection and confidence guides did not show up in Google results. If they exist, add them to this table. If they don't, those are the linkable assets to build next.
+**Update (24 Sep):** the live sitemap lists 11 guides under `/guides/`, covering self-trust, fear of rejection, confidence exercises, social confidence, second-guessing, reassurance-seeking, replaying conversations, anxious texting, overthinking everything, relationship overthinking, and caring what people think. Pitch these before sales pages. See `outreach-batch-1.md` for how each prospect maps to a guide.
 
 **Positioning (keep it accurate):** Jonathan Florence, author of 8 practical books on overthinking and confidence, and a systems builder who turns established psychology research into short, usable tools. **He is not a therapist or clinician.** Don't pitch clinical or anxiety-treatment angles, because editors screen for this.
 
