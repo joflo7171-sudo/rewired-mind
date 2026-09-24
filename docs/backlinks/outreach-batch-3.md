@@ -30,7 +30,7 @@ Prepared 24 Sep 2026. Continues from `outreach-batch-1.md` and `outreach-batch-2
 
 **Source material:** Draft 5's idea (confidence as evidence) has been rebuilt from scratch for introverts. None of the text is reused.
 
-**Word count:** ~1,150
+**Word count:** ~1,050 without the optional passages (their minimum is 1,000; the real-experience slots will add more)
 
 ### Bio (top of article, first person)
 
@@ -92,6 +92,12 @@ Introverts often need recharge time after social effort, and that's fine. Build 
 After an experiment, give yourself a short, planned reset: a walk, ten quiet minutes, a cup of tea. Then write your one-line observation and close it. What you're avoiding is the unplanned version: lying awake replaying every sentence. A replay that has already been written down in one sentence has much less to feed on.
 
 `[OPTIONAL — ONLY YOUR REAL EXPERIENCE: one short example of an experiment you actually ran, what you predicted, and what happened.]`
+
+#### When shyness or anxiety is part of the picture
+
+Introversion isn't the same as shyness or social anxiety, though they can overlap. Introversion is a preference for calm. Shyness is discomfort or hesitation around people. Social anxiety is a more intense, persistent fear of judgment that can shrink someone's life.
+
+The experiments above are meant for everyday hesitation: the kind that's frustrating but manageable. Start at the easy end of the list and move up slowly. If social situations bring intense fear, or you avoid them so much that it's limiting your work, friendships or wellbeing, that's worth talking through with a qualified mental-health professional. Small experiments can complement that support, but they aren't a replacement for it.
 
 #### Confidence that fits the way you're wired
 
