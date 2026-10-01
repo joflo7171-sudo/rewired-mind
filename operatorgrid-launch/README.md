@@ -8,6 +8,9 @@
 | `04-TERMS-OF-SALE-DRAFT.md` | Terms of Sale draft, including the single-business license |
 | `05-STRIPE-MANAGED-PAYMENTS-SETUP.md` | Account → product → price → Payment Link → delivery → go-live checklist |
 | `06-TEST-PURCHASE-CHECKLIST.md` | Full test-purchase checklist (sections A–I) |
+| `07-SUPPORT-EMAIL-REPLACEMENT-POINTS.md` | Every place support@getoperatorgrid.com goes, plus the ZIP rebuild procedure (v1.0.3) |
+| `08-STRIPE-TEST-MODE-RUNBOOK.md` | Test-mode-only proof of the secure delivery (13 required checks) |
+| `09-GOOGLE-SHEETS-VALIDATION-PLAN.md` | What gets verified once the two workbooks are in Drive as Google Sheets |
 
 ## Current state
 - **Product:** v1.0.2 (DEMO + CLEAN). 56/56 internal tests pass and the buyer-ZIP audit is clean. **Not yet tested in real Excel or Google Sheets.**
