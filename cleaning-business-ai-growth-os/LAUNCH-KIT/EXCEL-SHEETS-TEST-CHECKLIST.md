@@ -1,8 +1,8 @@
-# Excel + Google Sheets Test Checklist — Cleaning Business AI Growth OS v1.0.1
+# Excel + Google Sheets Test Checklist — Cleaning Business AI Growth OS v1.0.2
 
 **Why:** all formula testing so far ran in LibreOffice Calc (53/53 automated tests passed). Before taking money, confirm the same results in **real Microsoft Excel** and **real Google Sheets**. Allow about 45 minutes in total.
 
-**Files:** use the copies **inside** `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.1.zip` (unzip first). Work on copies so the originals stay untouched.
+**Files:** use the copies **inside** `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip` (unzip first). Work on copies so the originals stay untouched.
 
 **How to record:** mark each line ✅ / ❌. For any ❌, take a screenshot showing the cell and the formula bar.
 
@@ -13,7 +13,7 @@ Expected values come from the DEMO file, whose as-of date is fixed at **Sep 30, 
 ## Part A — Microsoft Excel (2019, 2021 or Microsoft 365, desktop)
 
 ### A1. Opening and safety
-- [ ] 1. Open `CLEANING-BUSINESS-AI-GROWTH-OS-DEMO.xlsx`. If a yellow *Protected View* bar appears, click **Enable Editing**.
+- [ ] 1. Open `CLEANING-BUSINESS-AI-GROWTH-OS-DEMO.xlsx`. If a yellow *Protected View* bar appears, **first confirm the DASHBOARD already shows numbers (e.g. Revenue $6,070) before editing is enabled**, then click **Enable Editing**.
 - [ ] 2. **No** macro warning appears. There should be none, because the file has no macros.
 - [ ] 3. **No** "update links / external content" prompt appears. *Data → Edit Links* should be greyed out or empty.
 - [ ] 4. **No** repair prompt such as "We found a problem with some content…".

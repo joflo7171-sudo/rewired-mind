@@ -139,3 +139,19 @@
   **Result: 0 problems.** The same audit run on the old v1.0 ZIP reports 291 problems, which confirms the checks work.
 - Every file in the rebuilt ZIP opens in its native library, and sample conversions succeed.
 - **Still outstanding:** testing in real Microsoft Excel and Google Sheets (see `LAUNCH-KIT/EXCEL-SHEETS-TEST-CHECKLIST.md`).
+
+## v1.0.2 (2026-10-01): pre-test hardening
+- **Bug found and fixed (CLEAN workbook only):** SETTINGS!B14 (AsOf), B16 (ReportMonth) and B17 (ReportYear) had no formulas in the CLEAN file. The build script defined them only for the DEMO.
+  - **Effect:** the system date read as zero, so the dashboard showed "January 1900", jobs dated today didn't count in the reporting month, and overdue follow-up flags never triggered.
+  - **Fix:** the formulas are now written to both files (`build_workbook.py`, settings writer).
+  - **Scope of change:** the DEMO workbook is byte-identical to v1.0.1. The CLEAN workbook changed only in the SETTINGS sheet and the style table (date formats for the 3 restored cells).
+- **Saved results added:** every formula cell now carries its calculated result (DEMO 62,232; CLEAN 62,232), taken from a full recalculation of the same files.
+  - **Why:** Excel Protected View and file previews no longer show an empty workbook.
+  - **Formula text** is identical to the pre-cache build in every cell. Excel and Sheets still recalculate fully on open.
+  - **CLEAN previews** show the build date (Oct 1, 2026) until the file is opened for editing, at which point it shows today.
+- **New regression tests:**
+  - CLEAN system date equals today, and the reporting month and year are correct.
+  - The 3 CLEAN SETTINGS formula cells exist.
+  - First CLEAN job dated today: 3.42 estimated hours, Unpaid status, dashboard revenue $200 and 1 job completed.
+- **Results:** 56/56 automated tests passed. 43/43 schema-checkable parts in each workbook are valid against the ISO/ECMA OOXML schemas. The buyer-ZIP audit found 0 problems.
+- **Still outstanding:** real Microsoft Excel and Google Sheets testing. It wasn't possible here: there's no Excel in this environment, and the Drive connector can't upload binary files of this size.

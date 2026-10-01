@@ -812,7 +812,8 @@ def build_settings(wb, demo):
             continue
         name, label, vdemo, vclean, fmt, note = item
         row = SETROW[name]
-        v = vdemo if demo else vclean
+        # formula rows (AsOf, ReportMonth, ReportYear) must exist in BOTH files
+        v = vdemo if (demo or (isinstance(vdemo, str) and vdemo.startswith("="))) else vclean
         if isinstance(v, str) and v.startswith("="):
             v = v.format(**SETROW)
             auto = True

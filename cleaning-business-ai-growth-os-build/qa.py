@@ -450,6 +450,36 @@ for key, spec in L.items():
 check("CLEAN file contains no sample records in any log", not leftover, leftover)
 check("CLEAN file: as-of date and reporting month blank (uses today)", wc["SETTINGS"][f"B{B.SETROW['AsOfInput']}"].value is None and wc["SETTINGS"][f"B{B.SETROW['RMInput']}"].value is None)
 
+# ------------------------------------------------------------------ 10b. CLEAN date engine + first job
+today = dt.date.today()
+cs = load_workbook(clean_calc, data_only=True)["SETTINGS"]
+asof = cs[f"B{B.SETROW['AsOf']}"].value; rm = cs[f"B{B.SETROW['ReportMonth']}"].value; ry = cs[f"B{B.SETROW['ReportYear']}"].value
+check("CLEAN file: system date = today, reporting month = this month, reporting year = this year",
+      asof is not None and asof.date() == today and rm is not None and rm.date() == today.replace(day=1) and ry == today.year, (asof, rm, ry))
+for nm in ("AsOf", "ReportMonth", "ReportYear"):
+    pass
+wc4 = load_workbook(CLEAN)
+check("CLEAN file: SETTINGS formula cells (AsOf, ReportMonth, ReportYear) contain formulas",
+      all(str(wc4["SETTINGS"][f"B{B.SETROW[k]}"].value).startswith("=") for k in ("AsOf", "ReportMonth", "ReportYear")))
+st, cu_, pr_, jb = L["STAFF & TASKS"], L["CUSTOMERS"], L["PROPERTIES"], L["JOBS"]
+wc4["STAFF & TASKS"][f"{st.letters['name']}{st.first}"] = "Test Cleaner"
+wc4["STAFF & TASKS"][f"{st.letters['rate']}{st.first}"] = 20
+wc4["CUSTOMERS"][f"{cu_.letters['name']}{cu_.first}"] = "Test Customer"
+wc4["CUSTOMERS"][f"{cu_.letters['ctype']}{cu_.first}"] = "Residential"
+for k, v in (("addr", "1 Test Street"), ("customer", "Test Customer"), ("sqft", 2000), ("beds", 3), ("baths", 2)):
+    wc4["PROPERTIES"][f"{pr_.letters[k]}{pr_.first}"] = v
+for k, v in (("date", today), ("time", dt.time(9, 0)), ("customer", "Test Customer"), ("property", "1 Test Street"),
+             ("service", "Standard Clean"), ("worker", "Test Cleaner"), ("crew", 1), ("price", 200), ("status", "Completed")):
+    wc4["JOBS"][f"{jb.letters[k]}{jb.first}"] = v
+p4 = os.path.join(WORK, "clean_first_job.xlsx"); wc4.save(p4)
+rr4 = recalc(p4)
+v4 = load_workbook(p4, data_only=True)
+gj = lambda k: v4["JOBS"][f"{jb.letters[k]}{jb.first}"].value
+check("CLEAN first job dated today: 0 errors, auto estimate 3.42 h, Unpaid, dashboard revenue $200 and jobs completed 1",
+      rr4.get("total_errors") == 0 and close(gj("model"), 3.42) and gj("paystat") == "Unpaid"
+      and close(v4["DASHBOARD"]["B6"].value, 200) and v4["DASHBOARD"]["B16"].value == 1,
+      (rr4.get("total_errors"), gj("model"), gj("paystat"), v4["DASHBOARD"]["B6"].value, v4["DASHBOARD"]["B16"].value))
+
 # ------------------------------------------------------------------ 11. text scan (spelling of fixed UI text)
 words = set()
 for ws in wbf.worksheets:
