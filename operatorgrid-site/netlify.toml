@@ -1,0 +1,17 @@
+# OperatorGrid site: Netlify configuration (used only when the owner approves deployment).
+# Static files are served from /public. Serverless functions live in /netlify/functions.
+# The product ZIP lives in /private and is bundled ONLY into the functions; it is never publicly served.
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["private/*.zip"]
+
+# Required environment variables (set in the Netlify UI, never committed):
+#   STRIPE_SECRET_KEY        restricted key (read: Checkout Sessions, PaymentIntents, Charges). Test key first.
+#   STRIPE_PRICE_ID          price_... for the $149 one-time price (test and live IDs differ)
+#   DOWNLOAD_SIGNING_SECRET  random string, 32+ characters
+# Optional:
+#   DOWNLOAD_WINDOW_DAYS (default 30)   DOWNLOAD_LINK_MINUTES (default 15)   PRODUCT_ZIP_NAME

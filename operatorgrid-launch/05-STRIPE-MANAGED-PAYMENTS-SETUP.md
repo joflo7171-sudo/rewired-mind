@@ -61,20 +61,27 @@
 | How | After payment, Stripe redirects to `thank-you.html`. A small serverless function checks the Checkout Session with Stripe (paid, $149 product), then gives a **short-lived signed link** to the ZIP stored in **private** storage. | The Payment Link confirmation message shows an unguessable download URL. |
 | Pros | Only paying customers can download. Refunded sessions can be blocked. | No code. Fastest to set up. |
 | Cons | Needs a little code, a host with serverless functions (free tiers exist), a Stripe API key and a webhook secret | The link can be shared. You can't revoke it per customer. |
-| Who builds it | I can build and test it in Stripe **test mode** once you provide **test-mode** keys | You paste the link |
+| Who builds it | **Built and tested locally (2026-10-01)** against a mock Stripe API: 15 unit tests + 34 browser checks pass. Still needs a real **test-mode** run with your test keys on a non-public or pre-launch deploy. | You paste the link |
 
 **Either way:** the ZIP must **not** be placed in the public website folder. Keep re-download requests going to support@ (or, with Option A, the thank-you link can work again for [X] days).
 
-## 7. Webhook (Option A only)
-- [ ] Endpoint: `https://getoperatorgrid.com/.netlify/functions/stripe-webhook` (or the equivalent for your host). Event: `checkout.session.completed`, plus `charge.refunded` to block downloads after a refund.
-- [ ] Store the signing secret and the API key as **host environment variables**, never in the website files or the repository.
+## 7. Delivery configuration (Option A, as built)
+- **No webhook is needed:** the download function checks the session live with Stripe each time (paid, correct price, within 30 days, not refunded or disputed).
+- [ ] Create a **restricted API key** with **read-only** access to Checkout Sessions, PaymentIntents and Charges (test mode first, then live)
+- [ ] On the host, set these environment variables, **never in files or the repository**:
+  - `STRIPE_SECRET_KEY` (the restricted key)
+  - `STRIPE_PRICE_ID` (test and live price IDs differ)
+  - `DOWNLOAD_SIGNING_SECRET` (random, 32+ characters)
+- [ ] Copy the approved ZIP into `operatorgrid-site/private/` at deploy time, and check its SHA-256
+- [ ] Payment Link "after payment" redirect: `https://getoperatorgrid.com/thank-you.html?session_id={CHECKOUT_SESSION_ID}`
+- [ ] **Verify in test mode:** under Managed Payments, the Checkout Session still exposes `payment_intent` → `latest_charge`, which the refund check relies on. If it doesn't, the refund check needs adjusting.
 
 ## 8. Test everything
 - [ ] Run **every** step of `06-TEST-PURCHASE-CHECKLIST.md` in test mode.
 
 ## 9. Go live (only with your explicit approval)
 - [ ] Recreate or copy the product, price and Payment Link in **live mode** (test-mode objects don't work live). Re-check: $149, one-time, quantity 1, promo codes off, tax code, terms required, redirect.
-- [ ] Paste the **live** Payment Link URL into `operatorgrid-site/assets/js/checkout.js` → `CHECKOUT_URL`
+- [ ] Paste the **live** Payment Link URL into `operatorgrid-site/public/assets/js/checkout.js` → `CHECKOUT_URL`, and switch the host environment variables to the **live** key and price ID
 - [ ] Optional live smoke test: buy once with your own card, confirm delivery, then refund. Payment processing fees on a refunded live charge are usually not returned, so this costs a few dollars; it's your call.
 - [ ] Switch the site from preview to live (see `operatorgrid-site/LAUNCH-CHECKLIST.md`)
 

@@ -4,17 +4,18 @@ Every item needs owner approval. The site stays in preview until all **Blockers*
 
 ## Blockers
 1. **Product testing:** v1.0.2 passes real Microsoft Excel and Google Sheets testing (`cleaning-business-ai-growth-os/LAUNCH-KIT/EXCEL-SHEETS-TEST-CHECKLIST.md`). The page states "Excel 2019+ / Microsoft 365 & Google Sheets", so that claim must be verified before publishing.
-2. **Support email:** create the branded mailbox, send and receive a test message, then replace the 3 support placeholders (`index.html` FAQ + Support section) and `READ-ME-FIRST.txt` in the ZIP. Rebuild and re-audit the ZIP.
+2. **Support email:** create the branded mailbox, send and receive a test message, then replace the 3 support placeholders (`public/index.html` FAQ + Support section, `public/thank-you.html`) and `READ-ME-FIRST.txt` in the ZIP. Rebuild and re-audit the ZIP.
 3. **Refund policy:** the owner writes it to match the payment provider's rules. Replace the FAQ placeholder and `refunds.html`.
 4. **Terms of Sale and Privacy Policy:** the owner supplies the text (professional review recommended) for `terms.html` and `privacy.html`.
 5. **Payment setup (Stripe Managed Payments):** the owner creates and verifies the account and a **$149 one-time** product (no coupons), and sets up delivery of the v1.0.2 ZIP after payment.
    - Complete a **test-mode purchase end to end**, including receiving the download.
-   - Then paste the live checkout URL into `assets/js/checkout.js` → `CHECKOUT_URL`.
-6. **Hosting:** choose a static host and deploy the `operatorgrid-site/` folder as the site root. Point `getoperatorgrid.com` DNS at it, enable HTTPS, and verify both `www` and the bare domain.
+   - Then paste the live checkout URL into `public/assets/js/checkout.js` → `CHECKOUT_URL`.
+6. **Hosting:** choose a static host and deploy `operatorgrid-site/` using `netlify.toml` (or the equivalent for another host). Copy the approved ZIP into `private/` and set the environment variables listed in `netlify.toml`. Point `getoperatorgrid.com` DNS at it, enable HTTPS, and verify both `www` and the bare domain.
 
 ## Switch from preview to live
 - [ ] Remove `<meta name="robots" content="noindex, nofollow">` from `index.html`, `terms.html`, `privacy.html`, `refunds.html` and `404.html`.
-- [ ] Replace `robots.txt` with the launch version shown in its comments.
+- [ ] Replace `public/robots.txt` with the launch version shown in its comments, **plus** `Disallow: /thank-you.html` and `Disallow: /api/`.
+- [ ] Keep `thank-you.html` noindex permanently.
 - [ ] Remove the yellow "Preview build" bar from every page.
 - [ ] Remove the `.placeholder` spans once their content exists.
 - [ ] Confirm the JSON-LD `availability` (InStock) is true only once checkout is live.
