@@ -2,6 +2,9 @@
 
 > **Status: DRAFT ONLY.** Nothing here has been uploaded to any store. Wait for owner approval before any marketplace or website action. Do not add reviews, testimonials or earnings claims until real ones exist.
 
+## Brand
+OperatorGrid
+
 ## Title
 **Cleaning Business AI Growth OS — Quote, Schedule, Track & Profit System (Excel + Google Sheets)**
 
@@ -81,31 +84,27 @@ One-time purchase. No subscription. Works in Microsoft Excel (2019 or newer / Mi
 
 **Is this a subscription?** No. It's a one-time purchase.
 
-**Refunds?** [Owner to decide. Digital-product refund policy must match the store's rules.]
+**Refunds?** [Owner to decide. Digital-product refund policy must match the payment provider's rules.]
+
+**Support?** [Support email placeholder. Insert it only after the mailbox exists and has been tested.]
 
 ## Search phrases
 cleaning business spreadsheet · cleaning business pricing calculator · house cleaning quote calculator · cleaning business CRM · cleaning business template bundle · maid service business tracker · cleaning business profit calculator · recurring cleaning schedule template · cleaning business dashboard excel · cleaning business google sheets · janitorial bid calculator · airbnb cleaning business tracker · move out cleaning price calculator · cleaning business forms · cleaning business planner · cleaning company operating system
 
-## Suggested screenshots / mockups (create from the DEMO file)
-1. **Hero:** laptop mockup of the DASHBOARD (money tiles + Action Center + chart). Overlay text: "Lead to payment in one system."
-2. **QUOTE BUILDER:** inputs on the left, profit results on the right, with the margin check highlighted. Overlay: "Know your profit before you quote."
-3. **PROFITABILITY:** by-service table with amber below-target cells. Overlay: "See which services really make money."
-4. **RECURRING + SCHEDULE:** the booking-status column and the weekly calendar. Overlay: "Never miss a recurring visit."
-5. **LEADS:** the pipeline with colored stages and Overdue flags.
-6. **What's included:** flat-lay grid of PDF covers, forms and marketing templates.
-7. **AI Workflow Library:** one workflow page (prompt box + "check before sending").
-8. **Short video (60–90 s):** quote a job → book it → mark completed → log payment → watch the dashboard update.
+## Store images (final — see LAUNCH-KIT/images/)
+01 cover (1280×720) · 02 thumbnail (600×600) · 03 dashboard · 04 quote builder · 05 profitability · 06 schedule · 07 sales pipeline · 08 monthly performance (gallery images 1600×1000, OperatorGrid-branded).
+Still recommended: a 60–90 s demo video (quote a job → book it → mark completed → log payment → dashboard updates).
 
 Only use the fictional DEMO data in screenshots. No real customer information.
 
-## Pricing
-- **Proposed launch price:** $99 (founding price for the first 10–25 buyers)
-- **Proposed regular price:** $149
-- See PRICING-VALIDATION.md for the reasoning.
+## Pricing (owner decision, 2026-10-01)
+- **Proposed launch price: $149, one-time.**
+- No coupons, discounts, sale prices or promotional pricing. Any change requires owner approval.
 
 ## Compliance checklist before publishing
 - [ ] Owner approval received
-- [ ] Brand/store name chosen (keep separate from all existing brands)
+- [x] Brand chosen: OperatorGrid (getoperatorgrid.com), kept separate from all existing brands
+- [ ] Support mailbox configured and tested before its address is added anywhere
 - [ ] Files opened and checked in real Excel and Google Sheets
 - [ ] Screenshots use only fictional demo data
 - [ ] No reviews, testimonials, earnings or "guaranteed" claims unless real and permitted

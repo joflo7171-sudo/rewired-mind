@@ -1697,7 +1697,7 @@ def build_start(wb, demo):
         ws.cell(1, col).fill = fill(C_PRIMARY); ws.cell(2, col).fill = fill(C_PRIMARY)
     ws["B1"] = "CLEANING BUSINESS AI GROWTH OS"
     ws["B1"].font = font(22, True, "FFFFFF"); ws.row_dimensions[1].height = 42
-    ws["B2"] = "Run your cleaning business from lead to payment in one connected system."
+    ws["B2"] = "Run your cleaning business from lead to payment in one connected system.   ·   by OperatorGrid"
     ws["B2"].font = font(11, False, "D8F0EC", italic=True); ws.row_dimensions[2].height = 22
     ws["B3"] = ("DEMO FILE — every name, address and number is fictional sample data. Explore it, then use the CLEAN file for your business."
                 if demo else "CLEAN FILE — ready for your business. Follow the 5 setup steps below.")
@@ -1889,12 +1889,24 @@ def build(out_path, demo):
         ws.print_options.horizontalCentered = True
         ws.page_margins.left = ws.page_margins.right = 0.4
     if os.environ.get("SCREENSHOT"):
-        areas = {"LEADS": "A1:Q24", "JOBS": "A1:P24", "PROFITABILITY": "A1:P13", "RECURRING": "A1:R17",
-                 "QUOTE BUILDER": "A1:H41", "SCHEDULE": "A1:H22", "CUSTOMERS": "A1:S24", "MONTHLY": "A1:N40"}
+        areas = {"LEADS": "A1:P80", "JOBS": "A1:P24", "PROFITABILITY": "A1:I13", "RECURRING": "A1:R17",
+                 "QUOTE BUILDER": "A1:H41", "SCHEDULE": "A7:F21", "CUSTOMERS": "A1:S24", "MONTHLY": "A1:N40"}
+        for c in "DEHMNO":
+            wb["LEADS"].column_dimensions[c].hidden = True
+        for r in range(14, 19):
+            wb["SCHEDULE"].row_dimensions[r].hidden = True
+        for c in "GH":
+            wb["SCHEDULE"].column_dimensions[c].hidden = True
+        for r in range(5, 63):
+            wb["LEADS"].row_dimensions[r].hidden = True
+        wb["SCHEDULE"]["B4"] = dt.date(int(os.environ["SHOTWEEK"][:4]), int(os.environ["SHOTWEEK"][5:7]), int(os.environ["SHOTWEEK"][8:])) if os.environ.get("SHOTWEEK") else None
         for ws in wb.worksheets:
             ws.print_area = areas.get(ws.title, ws.print_area or "A1:A1") if ws.title in areas or ws.title in ("DASHBOARD", "START HERE") else "A1:A1"
             if ws.title in ("DASHBOARD", "START HERE"):
                 ws.print_area = None
+    wb.properties.creator = "OperatorGrid"
+    wb.properties.lastModifiedBy = "OperatorGrid"
+    wb.properties.title = "Cleaning Business AI Growth OS"
     wb.active = 0
     wb.calculation.fullCalcOnLoad = True
     wb.save(out_path)

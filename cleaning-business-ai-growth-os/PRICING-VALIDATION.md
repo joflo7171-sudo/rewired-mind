@@ -38,16 +38,17 @@ On function and kit it sits with or above the $169–$199 tools. What it lacks a
 ### $199 — **Not supported yet.**
 At $199 it competes directly with the top Notion OSes and education bundles, which offer video training, an established seller and sometimes support or coaching. To earn $199 it would need: (1) video walkthroughs of every module, (2) a Google Sheets version checked natively, (3) evidence from real users, and possibly (4) a setup call or a commercial/agency license tier.
 
-## 4. Recommendation
+## 4. Decision
 
-| | Price | Condition |
-|---|---|---|
-| **Launch / founding price** | **$99** | First 10–25 buyers, in exchange for honest feedback (never tied to a positive review) |
-| **Regular price** | **$149** | Once you have a 5-minute demo video, 4–6 real screenshots and early-buyer feedback you are allowed to quote |
-| Future premium tier | $199–$249 | Add video course walkthroughs + a 30-minute setup call, or an agency/consultant license |
-| Optional entry product | $19–$29 | QUOTE BUILDER + PRICING as a standalone calculator. It acts as a low-risk first purchase that leads buyers to the full OS. |
+**Owner decision (2026-10-01): launch at $149, one-time. No coupons, discounts, sale prices or promotional pricing.**
 
-**Short answer:** the build is strong enough to *be* a $149 product, but not yet strong enough to *sell* at $149 to strangers. Launch at $99, get proof, then move to $149.
+What makes $149 easier to sell from a new brand with no reviews (none of these involve lowering the price):
+1. Pass real Excel and Google Sheets testing before taking any money.
+2. A 3–5 minute demo video on the sales page.
+3. The six gallery images plus clear "what's included" and "who it's not for" sections, to set honest expectations.
+4. A configured, tested support mailbox.
+
+Options for later, only with owner approval: a $199–$249 premium tier (video course and setup call), or a $19–$29 standalone quote calculator as an entry product.
 
 ## 5. Verify before launch (manually, in a normal browser)
 

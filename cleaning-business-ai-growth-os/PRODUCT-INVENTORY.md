@@ -1,6 +1,6 @@
 # Product Inventory — Cleaning Business AI Growth OS v1.0
 
-Status: **built and tested, not published.**
+Status: **v1.0.1 (OperatorGrid) — built, tested and audited; not published. Proposed price $149 one-time, no discounts.**
 
 ## 1. Workbooks
 | File | Contents |
@@ -69,3 +69,7 @@ Folder `../cleaning-business-ai-growth-os-build/`: `build_workbook.py`, `demo_da
 ## Customer download package (when approved)
 Ship: both .xlsx files, the 3 guide PDFs, `CLIENT-FORMS/`, `MARKETING-KIT/`.
 Do **not** ship: the .md business documents or the build folder.
+
+## Launch kit (internal, not shipped)
+`LAUNCH-KIT/OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.1.zip` (buyer download) · `LAUNCH-KIT/images/` (cover, thumbnail, 6 gallery images) · `LAUNCH-KIT/LAUNCH-PLAN.md` · `LAUNCH-KIT/EXCEL-SHEETS-TEST-CHECKLIST.md`.
+Additional build scripts: `clean_meta.py` (OperatorGrid metadata, fingerprint removal), `audit_zip.py` (buyer-ZIP audit), `build_launch_images.py`.

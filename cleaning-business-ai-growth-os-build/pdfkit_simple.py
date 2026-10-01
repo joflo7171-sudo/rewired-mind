@@ -42,32 +42,32 @@ def P(t, st="body"):
     return Paragraph(t, S[st])
 
 
-def render(path, title, subtitle, blocks, product="Cleaning Business AI Growth OS"):
+def render(path, title, subtitle, blocks, product="Cleaning Business AI Growth OS", brand="OperatorGrid"):
     def cover(c, doc):
         c.saveState()
         c.setFillColor(PRIMARY); c.rect(0, 0, LETTER[0], LETTER[1], stroke=0, fill=1)
         c.setFillColor(ACCENT); c.rect(0, LETTER[1] * 0.38, LETTER[0], 6, stroke=0, fill=1)
         c.setFont("DV", 9); c.setFillColor(colors.HexColor("#D8F0EC"))
-        c.drawString(0.8 * inch, 0.7 * inch, product.upper() + "  ·  Template content — customize before use")
+        c.drawString(0.8 * inch, 0.7 * inch, f"© {brand}  ·  {product}  ·  Template content — customize before use")
         c.restoreState()
 
     def page(c, doc):
         c.saveState()
         c.setStrokeColor(ACCENT); c.setLineWidth(2); c.line(0.75 * inch, LETTER[1] - 0.55 * inch, LETTER[0] - 0.75 * inch, LETTER[1] - 0.55 * inch)
         c.setFont("DVB", 8); c.setFillColor(PRIMARY)
-        c.drawString(0.75 * inch, LETTER[1] - 0.45 * inch, product.upper())
+        c.drawString(0.75 * inch, LETTER[1] - 0.45 * inch, brand.upper() + "  ·  " + product.upper())
         c.setFont("DV", 8); c.setFillColor(MUTED)
         c.drawRightString(LETTER[0] - 0.75 * inch, LETTER[1] - 0.45 * inch, title)
         c.drawRightString(LETTER[0] - 0.75 * inch, 0.5 * inch, f"Page {doc.page}")
         c.drawString(0.75 * inch, 0.5 * inch, "Estimates and templates only — not legal, tax, accounting, insurance or safety advice.")
         c.restoreState()
 
-    doc = BaseDocTemplate(path, pagesize=LETTER, title=title, author=product, subject=subtitle,
+    doc = BaseDocTemplate(path, pagesize=LETTER, title=title, author=brand, creator=brand, subject=subtitle,
                           leftMargin=0.75 * inch, rightMargin=0.75 * inch, topMargin=0.8 * inch, bottomMargin=0.8 * inch)
     fr = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="f")
     cfr = Frame(0.8 * inch, LETTER[1] * 0.42, LETTER[0] - 1.6 * inch, LETTER[1] * 0.45, id="c")
     doc.addPageTemplates([PageTemplate("cover", [cfr], onPage=cover), PageTemplate("page", [fr], onPage=page)])
-    story = [Spacer(1, 60), P(product.upper(), "cover_s"), Spacer(1, 10), P(title, "cover_t"), Spacer(1, 14), P(subtitle, "cover_s"),
+    story = [Spacer(1, 40), P(brand.upper(), "cover_s"), Spacer(1, 4), P(product.upper(), "cover_s"), Spacer(1, 10), P(title, "cover_t"), Spacer(1, 14), P(subtitle, "cover_s"),
              NextPageTemplate("page"), PageBreak()]
     for kind, val in blocks:
         if kind in ("h1", "h2", "h3", "small"):

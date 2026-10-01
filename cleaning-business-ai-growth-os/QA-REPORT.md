@@ -123,3 +123,19 @@
 8. **Capacity:** about 1,500 jobs/payments/trips (roughly 4–5 years for a 1–5 person business). The guide explains how to extend it.
 9. **Sorting:** the filter buttons are always safe. Sorting part of a table (not the whole table) can scramble rows, as in any spreadsheet. This is documented.
 10. **No video walkthrough yet.** Competing premium products rely on video onboarding (see PRICING-VALIDATION.md).
+
+## v1.0.1 re-test (2026-10-01): OperatorGrid cleanup
+- **Metadata:** every Word, PowerPoint and Excel file and every PDF now lists **OperatorGrid** as author/creator (PDF producer too). The generator fingerprints are removed: python-docx, python-pptx, Openpyxl, "Steve Canny", ReportLab, LibreOffice and Microsoft-template application names. Template leftovers are removed too: 7 Apple printer-settings parts and 22 template thumbnails.
+- **Functionality unchanged:** the JOBS worksheet XML is byte-identical before and after cleaning, and the full suite re-ran on the cleaned workbooks: **53/53 passed, 0 formula errors**.
+- **Guide wording:** the AI-assistant brand examples are replaced with "These workflows can be used with most general-purpose AI assistants."
+- **Buyer ZIP audit** (`cleaning-business-ai-growth-os-build/audit_zip.py`) covered 24 Office files (618 internal parts), 25 PDFs (62 pages) and READ-ME-FIRST.txt. It checked:
+  - forbidden brand, tool and private terms
+  - emails (only `@example.com`) and URLs (only standard document-schema namespaces)
+  - phone numbers (only the fictional 555 range)
+  - external relationships and links, macros, data connections, OLE/embedded objects and ActiveX
+  - attached templates and external formula references
+  - PDF JavaScript, launch actions, URI links, embedded files and XMP metadata
+
+  **Result: 0 problems.** The same audit run on the old v1.0 ZIP reports 291 problems, which confirms the checks work.
+- Every file in the rebuilt ZIP opens in its native library, and sample conversions succeed.
+- **Still outstanding:** testing in real Microsoft Excel and Google Sheets (see `LAUNCH-KIT/EXCEL-SHEETS-TEST-CHECKLIST.md`).

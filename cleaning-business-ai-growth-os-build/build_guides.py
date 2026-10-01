@@ -232,7 +232,7 @@ full = [
                 ["File feels slow", "Normal on very old computers with large logs. Close other workbooks; in Excel use Formulas → Calculation Options → Automatic."]],
                [0.34, 0.66])),
     ("h2", "9. Using the AI workflows"),
-    ("p", "The AI-WORKFLOW-LIBRARY.pdf contains 18 prompts written for any general AI assistant (for example ChatGPT, Claude, Gemini or Copilot). "
+    ("p", "The AI-WORKFLOW-LIBRARY.pdf contains 18 prompts. These workflows can be used with most general-purpose AI assistants. "
           "No paid AI API or plug-in is required — you copy, paste and fill in the brackets."),
     ("num", ["Paste your Business Profile (page 2 of the library) at the start of a new chat.",
              "Copy the workflow prompt, replace every [bracket] with real details, and send it.",
