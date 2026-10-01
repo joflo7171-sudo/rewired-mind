@@ -44,7 +44,7 @@ Confirm these on Stripe's testing page. Managed Payments test-mode behavior may 
 ### E. File delivery and ZIP download
 - [ ] E1. The download is available right after payment (Option A: the thank-you page shows a working button; Option B: the confirmation message shows the link)
 - [ ] E2. The downloaded file is named `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.x.zip` and is the **approved current build**. Its SHA-256 matches the hash recorded at release.
-- [ ] E3. The ZIP opens on Windows and Mac. It contains 51 files in the `Cleaning-Business-AI-Growth-OS/` folder, and READ-ME-FIRST.txt shows the **real** support email.
+- [ ] E3. The ZIP opens on Windows and Mac. It contains 50 files in the `Cleaning-Business-AI-Growth-OS/` folder, and READ-ME-FIRST.txt shows the **real** support email.
 - [ ] E4. The DEMO workbook opens in Excel (numbers visible, including in Protected View) and in Google Sheets
 - [ ] E5. **Option A only:**
   - visiting `thank-you.html` with **no** or a **made-up** `session_id` gives **no** download;

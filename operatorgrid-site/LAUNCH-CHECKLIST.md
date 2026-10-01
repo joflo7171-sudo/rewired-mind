@@ -3,7 +3,7 @@
 Every item needs owner approval. The site stays in preview until all **Blockers** are complete.
 
 ## Blockers
-1. **Product testing:** v1.0.2 passes real Microsoft Excel and Google Sheets testing (`cleaning-business-ai-growth-os/LAUNCH-KIT/EXCEL-SHEETS-TEST-CHECKLIST.md`). The page states "Excel 2019+ / Microsoft 365 & Google Sheets", so that claim must be verified before publishing.
+1. **Product testing:** v1.0.3 passes real Microsoft Excel and Google Sheets testing (`cleaning-business-ai-growth-os/LAUNCH-KIT/EXCEL-SHEETS-TEST-CHECKLIST.md`). The page states "Excel 2019+ / Microsoft 365 & Google Sheets", so that claim must be verified before publishing.
 2. **Support email:** create the branded mailbox, send and receive a test message, then replace the 3 support placeholders (`public/index.html` FAQ + Support section, `public/thank-you.html`) and `READ-ME-FIRST.txt` in the ZIP. Rebuild and re-audit the ZIP.
 3. **Refund policy:** the owner writes it to match the payment provider's rules. Replace the FAQ placeholder and `refunds.html`.
 4. **Terms of Sale and Privacy Policy:** the owner supplies the text (professional review recommended) for `terms.html` and `privacy.html`.

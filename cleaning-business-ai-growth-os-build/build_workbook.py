@@ -725,7 +725,7 @@ def write_log(ws, spec, rows=None):
     for i, col in enumerate(spec.cols, start=1):
         if col.dv:
             dvf = col.dv() if callable(col.dv) else col.dv
-            dv = DataValidation(type="list", formula1=dvf if dvf.startswith('"') else "=" + dvf,
+            dv = DataValidation(type="list", formula1=dvf,
                                 allow_blank=True, showErrorMessage=False)
             dv.add(f"{L(i)}{spec.first}:{L(i)}{spec.last}")
             ws.add_data_validation(dv)
@@ -911,10 +911,10 @@ def build_pricing(wb):
     section(ws, "A53", "5. RATE CARD  —  one-time base prices from your assumptions (before add-ons, discounts, tax)", 9)
     kv_cell(ws, "A54", "Condition for rate card", bold=True)
     kv_cell(ws, "B54", "Average", fillc=C_INPUT, bold=True)
-    dv = DataValidation(type="list", formula1="=" + COND_NAME, allow_blank=False); dv.add("B54"); ws.add_data_validation(dv)
+    dv = DataValidation(type="list", formula1=COND_NAME, allow_blank=False); dv.add("B54"); ws.add_data_validation(dv)
     kv_cell(ws, "C54", "Recurring frequency to compare", bold=True)
     kv_cell(ws, "D54", "Biweekly", fillc=C_INPUT, bold=True)
-    dv2 = DataValidation(type="list", formula1="=" + FREQ_RECUR, allow_blank=False); dv2.add("D54"); ws.add_data_validation(dv2)
+    dv2 = DataValidation(type="list", formula1=FREQ_RECUR, allow_blank=False); dv2.add("D54"); ws.add_data_validation(dv2)
     heads = ["Sq Ft", "Bedrooms", "Bathrooms"] + [f"=A{PT_FIRST + i}" for i in range(4)] + ['="Standard at "&D54', "Standard Monthly Value"]
     for i, t in enumerate(heads, start=1):
         cell = ws.cell(55, i, t)
@@ -954,12 +954,12 @@ def build_quote(wb, demo):
         (6, "Quote date", dt.date(2026, 9, 30) if demo else None, FMT_DATE, None),
         (7, "Customer name", "Avery Collins" if demo else None, None, None),
         (8, "Property address", "14 Birch Lane, Sampletown" if demo else None, None, None),
-        (9, "Cleaning type", "Deep Clean", None, "=" + PT_TYPE),
+        (9, "Cleaning type", "Deep Clean", None, PT_TYPE),
         (10, "Square footage", 2200 if demo else 2000, '#,##0', None),
         (11, "Bedrooms", 3, '0', None),
         (12, "Bathrooms", 2.5 if demo else 2, '0.0', None),
-        (13, "Property condition", "Average", None, "=" + COND_NAME),
-        (14, "Frequency", "One-time", None, "=" + FREQ_NAME),
+        (13, "Property condition", "Average", None, COND_NAME),
+        (14, "Frequency", "One-time", None, FREQ_NAME),
         (15, "Number of workers", 2, '0', None),
         (16, "Labor hours override (optional)", None, FMT_NUM2, None),
         (17, "Billing rate per labor hour override (optional)", None, FMT_MONEY, None),
@@ -987,7 +987,7 @@ def build_quote(wb, demo):
         cell.fill = fill(C_PRIMARY if i <= 2 else C_AUTOHDR); cell.border = BORDER
         cell.alignment = Alignment(horizontal="center")
     demo_addons = [("Inside oven", 1), ("Inside refrigerator", 1), ("Interior windows (per 10)", 1)] if demo else []
-    dva = DataValidation(type="list", formula1="=" + ADD_NAME, allow_blank=True)
+    dva = DataValidation(type="list", formula1=ADD_NAME, allow_blank=True)
     for i in range(6):
         r = 25 + i
         a = demo_addons[i] if i < len(demo_addons) else (None, None)
@@ -1292,7 +1292,7 @@ def build_profitability(wb):
     J = LOGS["JOBS"]
     kv_cell(ws, "A4", "Period:", bold=True)
     kv_cell(ws, "B4", "Reporting month", bold=True, fillc=C_INPUT)
-    dv = DataValidation(type="list", formula1="=" + LST("period", True), allow_blank=False); dv.add("B4"); ws.add_data_validation(dv)
+    dv = DataValidation(type="list", formula1=LST("period", True), allow_blank=False); dv.add("B4"); ws.add_data_validation(dv)
     kv_cell(ws, "C4", "From", color=C_MUTED)
     kv_cell(ws, "D4", '=IF(B4="All time",DATE(1900,1,1),IF(B4="Year to date",DATE(ReportYear,1,1),ReportMonth))', FMT_DATE, fillc=C_AUTOFILL)
     kv_cell(ws, "E4", "To", color=C_MUTED)

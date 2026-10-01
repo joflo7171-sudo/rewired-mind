@@ -2,7 +2,7 @@
 
 *Run your cleaning business from lead to payment in one connected system.*
 
-**Status: v1.0.2 built and tested — NOT PUBLISHED. Proposed price: $149 one-time (no discounts). Nothing has been uploaded, listed or sold. Waiting for owner approval.**
+**Status: v1.0.3 built and tested — NOT PUBLISHED. Proposed price: $149 one-time (no discounts). Nothing has been uploaded, listed or sold. Waiting for owner approval.**
 
 This is a standalone product. It is intentionally separate from every existing brand (no Rewired Mind, ZAVONIQ, Legacy & Liberation, BadgeWorks Studio or book-brand references anywhere in the deliverables).
 

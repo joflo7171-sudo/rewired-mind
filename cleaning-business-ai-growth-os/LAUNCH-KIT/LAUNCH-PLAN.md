@@ -6,7 +6,7 @@
 ## Assets in this folder
 | File | Use |
 |---|---|
-| `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip` | The file buyers download (51 files). Clean, audited, OperatorGrid metadata. |
+| `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.3.zip` | The file buyers download (50 files). Clean, audited, OperatorGrid metadata. |
 | `images/01-cover-1280x720.png` | Cover / hero image |
 | `images/02-thumbnail-600x600.png` | Square thumbnail |
 | `images/03…08-*.png` (1600×1000) | Gallery: dashboard, quote builder, profitability, schedule, sales pipeline, monthly |

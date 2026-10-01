@@ -1,38 +1,74 @@
-# Google Sheets validation: plan and expected values (waiting for uploads)
+# Google Sheets validation: results (2026-10-01)
 
-**Status: NOT RUN.** As of this update, neither workbook is in Google Drive yet; only the v1.0.2 ZIP is.
+**Tested:** v1.0.2 DEMO and CLEAN, converted to Google Sheets in your Drive. I read them by exporting Google's own recalculated copy, so the values below are Google's results, not cached values.
 
-## Your step
-1. Unzip `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip`.
-2. Upload **`CLEANING-BUSINESS-AI-GROWTH-OS-DEMO.xlsx`** and **`CLEANING-BUSINESS-AI-GROWTH-OS-CLEAN.xlsx`** to Google Drive, individually.
-3. Open each one and choose **File → Save as Google Sheets**. Keep the default names; they start "CLEANING-BUSINESS-AI-GROWTH-OS".
-4. Tell me they're ready.
+**Verdict:**
+- **Calculations: PASS.**
+- **Dropdowns: FAIL in v1.0.2 → fixed in v1.0.3.** The fix is proven on a test file; it has not yet been re-run on the real v1.0.3 files.
+- **Interaction tests: NOT RUN.** They need cell edits, which the connector can't make.
 
-## What I'll check through the Drive connector (read-only; nothing in your Drive gets edited)
-| Check | How |
-|---|---|
-| Error sweep on every tab | Read the converted sheets and search for `#REF!`, `#VALUE!`, `#NAME?`, `#DIV/0!`, `#N/A`, `#ERROR!` |
-| DEMO DASHBOARD | Revenue **$6,070** · Gross Profit **$2,590** · Margin **42.7%** · Op. Profit **$1,987** · Collected **$5,335** · Unpaid **$1,080** · Leads/Quotes/Booked **13/5/1** · Conversion **7.7%** · Follow-ups due **12** · Jobs **35** · Active plans **10** · Recurring MV **$3,985** · Rating **4.5** · Reactivate **7** · "Completed jobs not fully paid" **8** |
-| DEMO QUOTE BUILDER | G7 **7.50** · G16 **$522.50** · G26 **$283.37** · G28 **$239.13** · G29 **45.8%** · G32 **$276.23** · G33 **$569.47** · G37 **$192.88** |
-| DEMO other tabs | MONTHLY year totals **$54,360 / 290 jobs / $17,716 operating profit** · PROFITABILITY Standard Clean **16 jobs / $3,100 / $1,195 / 38.5%** · R-001 **Sep 22, 2026 · Overdue — book now** · C-001 **34 jobs / $6,225** · SCHEDULE jobs row **1,0,1,1,4,0,1** · FOLLOW-UPS first lead **Sage Sterling, Overdue**, first unpaid **J-0273 $150** |
-| CLEAN | SETTINGS system date = **today**, reporting month = **this month**, reporting year = **this year**; all dashboard tiles 0 or "–"; no `#` errors |
+## 1. Results on v1.0.2 as converted by Google
+| Check | DEMO | CLEAN | Class |
+|---|---|---|---|
+| Formula results identical to the verified values | **62,232 / 62,232** | 62,227 / 62,232 | — |
+| The 5 CLEAN differences | — | All are TODAY-driven. Google uses your local time zone (Sep 30) while the build used UTC (Oct 1). | Correct behavior |
+| `#REF!` `#VALUE!` `#NAME?` `#DIV/0!` `#N/A` `#ERROR!` | 0 | 0 | — |
+| Formulas still live formulas | 62,232 | 62,232 | — |
+| 13,069 formulas stored as single-cell array formulas | Same results | Same results | Storage detail only |
+| Charts | 4 / 4 | 4 / 4 | — |
+| Named ranges | 25 / 25 | 25 / 25 | — |
+| Internal tab links | 84 / 84 kept | 84 / 84 kept | — |
+| Filters, frozen panes, merged cells | 14 / 21 / 184, all kept | Same | — |
+| Conditional formatting | 68 / 73 | 68 / 73 | **Cosmetic** |
+| Dropdowns | **2 / 65** | **2 / 65** | **Functional → fixed in v1.0.3** |
 
-## Limits of a read-only check
-- **Interaction tests** need cell edits:
-  - Standard Clean quote → **$299.50**
-  - L-0064 → Booked → **15.4%** conversion
-  - $150 payment on J-0273 → **$930** unpaid
-  - a CLEAN job dated today → **3.42** hours, **Unpaid**, **$200** revenue
+**DEMO key values, recalculated by Google:**
+- Revenue **$6,070**
+- Margin **42.7%**
+- Quote **$522.50**
+- All the other expected DASHBOARD, QUOTE BUILDER, MONTHLY, PROFITABILITY, RECURRING, CUSTOMERS, SCHEDULE and FOLLOW-UPS values match.
 
-  The Drive connector can read but **cannot edit cells**, so you make those edits (about 5 minutes, steps in `cleaning-business-ai-growth-os/LAUNCH-KIT/EXCEL-SHEETS-TEST-CHECKLIST.md` Part B). I then re-read the sheet and confirm the results.
-- **Dropdowns, charts, conditional formatting and tab links** are visual. The text the connector returns doesn't show them reliably, so you confirm those by eye (checklist items 51–53).
-- **Large tabs:** the connector may shorten very large tabs (JOBS and REVENUE have 1,500 prepared rows). Where that happens, I'll verify through the dashboard, MONTHLY and PROFITABILITY values, which summarize every row.
+**CLEAN:**
+- The system date is today, and the reporting month and year are this month and year.
+- The dashboard is blank or 0.
+- There are no errors.
 
-## How differences are classified
-- **Functional problem:** a wrong value, an error, or a feature that doesn't work. Fixed in the workbook and fully re-tested.
-- **Cosmetic difference:** a color, chart style or formatting change with correct values. Documented, not fixed unless important.
-- **Documented limitation:** known platform behavior, e.g. tab-link buttons in Google Sheets. Already noted in the guide.
+### Cosmetic difference: 5 amber "below target margin" highlights
+- **Cause:** Google Sheets doesn't allow named ranges (`TargetMargin`) in conditional-format rules, so it drops them.
+- **Impact:** values are unaffected, and the QUOTE BUILDER "Margin check" text still says "Below your target margin".
+- **Decision:** not changed. A workaround (INDIRECT) would touch working Excel formatting for a cosmetic gain.
 
-Already expected in Sheets:
-- Tab-link buttons may not jump between tabs (documented limitation).
-- The amber "below target margin" highlight may not appear (cosmetic).
+### Functional problem: range dropdowns lost
+- **Symptom:** 63 dropdowns disappeared, for example lead source, cleaning type, job status, payment method and the quote inputs. Only the two typed lists ("Yes,No" and "Yes,No,N/A") survived.
+- **Root cause:** the builder stored range dropdowns with a leading `=`. Google drops those.
+- **Proof:** two small, clearly labeled test files were uploaded, converted, checked and then moved to the Drive trash.
+  - 8 variants without `=` (cross-sheet, named range, quoted sheet names with `&`, same-sheet, list) were **all kept**.
+  - With the same dropdown written with and without `=`, **only the version without `=` was kept**.
+- **Fix:** **v1.0.3** removes the `=`. That is the only change inside both workbooks: every formula, value, chart, format, name and link is byte-identical.
+- **Re-test:**
+  - 56/56 automated tests pass.
+  - The schema check is valid.
+  - LibreOffice keeps 65/65 dropdowns.
+  - The ZIP audit is clean.
+  - Delivery tests pass: 15/15 unit and 34/34 browser.
+
+## 2. Your next step (about 10 minutes)
+1. Unzip **`OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.3.zip`**.
+2. Upload the DEMO and CLEAN `.xlsx` files to Drive, then open each and choose **File → Save as Google Sheets**.
+3. Delete or ignore the older v1.0.2 Sheets so the copies aren't confused.
+4. In the **DEMO** Sheet, make these edits (checklist items 28, 36 and 37). Use the dropdowns, which also proves they work.
+
+   | Edit | Expected result |
+   |---|---|
+   | QUOTE BUILDER B9 → **Standard Clean** | G16 **$299.50** |
+   | LEADS, L-0064 Sage Sterling: Stage → **Booked** | DASHBOARD Conversion **15.4%** |
+   | REVENUE row 287: Payment Date 9/30/2026, Job **J-0273**, Amount **150**, Method **Cash** | Unpaid Balances **$930** |
+
+5. In the **CLEAN** Sheet, do checklist item 43: add one STAFF name, one CUSTOMER and one PROPERTY (2,000 sq ft, 3 bd, 2 ba), then one JOB dated **today** (Standard Clean, price 200, Status Completed).
+   - Expected: Auto Est. Hrs **3.42**
+   - Payment Status **Unpaid**
+   - DASHBOARD Revenue **$200**
+6. Tell me they're ready. I'll confirm 65/65 dropdowns and all of the results above by reading the Sheets.
+
+## 3. Still outstanding after that
+- A **real Microsoft Excel** test (there is no Excel here). Use `cleaning-business-ai-growth-os/LAUNCH-KIT/EXCEL-SHEETS-TEST-CHECKLIST.md`.

@@ -7,7 +7,7 @@ import path from "node:path";
 import { startMockStripe, PRICE } from "./mock-stripe.mjs";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
-const ZIP = "OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip";
+const ZIP = "OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.3.zip";
 const KEY = "rk_test_mockkey";
 let mock, verify, download;
 

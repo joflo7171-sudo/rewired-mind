@@ -1,6 +1,6 @@
 # Stripe Managed Payments: setup checklist
 
-**Product:** Cleaning Business AI Growth OS · **Price:** $149.00 USD one-time · **Discounts:** none · **Delivery:** `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip` (or the rebuilt version that carries the real support email)
+**Product:** Cleaning Business AI Growth OS · **Price:** $149.00 USD one-time · **Discounts:** none · **Delivery:** `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.3.zip` (or the rebuilt version that carries the real support email)
 
 **Status: NOTHING CREATED.** No account, product, price, payment link or checkout exists. Account steps need your identity, business, tax and bank details, so only you can do them.
 
@@ -15,7 +15,7 @@
 ---
 
 ## 0. Before you start (gates)
-- [ ] v1.0.2 passes real **Excel and Google Sheets** testing
+- [ ] v1.0.3 passes real **Excel and Google Sheets** testing
 - [ ] **support@getoperatorgrid.com** is working and tested (`01-SUPPORT-EMAIL-SETUP.md`)
 - [ ] **Refund Policy**, **Terms of Sale** and **Privacy Policy** are final and approved (drafts 02–04)
 - [ ] The website is **reachable at getoperatorgrid.com** in "pre-launch mode": checkout inactive, noindex still on. Stripe usually reviews your website during activation; it typically looks for a product description, price, refund policy, terms, privacy policy and contact details. This step means publishing the site, so it needs your separate approval.

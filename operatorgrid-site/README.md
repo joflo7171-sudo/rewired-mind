@@ -4,7 +4,7 @@ Static, dependency-free sales site for **Cleaning Business AI Growth OS** by Ope
 
 - **Status:** local preview only. Not deployed, DNS untouched, no payment processor connected, no live checkout, no discounts.
 - **Price shown:** $149 one-time (USD).
-- **Product file this page sells:** `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip` (not hosted here; delivery is set up with the payment provider at launch).
+- **Product file this page sells:** `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.3.zip` (not hosted here; delivery is set up with the payment provider at launch).
 
 ## Preview locally
 ```

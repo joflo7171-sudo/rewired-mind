@@ -31,9 +31,9 @@ Set these environment variables on the test deploy **only**:
 | `STRIPE_SECRET_KEY` | `rk_test_...` (**never** a live key during this runbook) |
 | `STRIPE_PRICE_ID` | the test `price_...` for $149 |
 | `DOWNLOAD_SIGNING_SECRET` | a random string of 32+ characters |
-| `PRODUCT_ZIP_NAME` | `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip` (or v1.0.3 once the support email is in) |
+| `PRODUCT_ZIP_NAME` | `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.3.zip` (or v1.0.4 once the support email is in) |
 
-Copy the approved ZIP into `private/` before deploying. Record its SHA-256 (v1.0.2 = `6b8ceba72f1970a2a65b37ab6768999d0c8b0b4e9be097aa6574e68526991156`).
+Copy the approved ZIP into `private/` before deploying. Record its SHA-256 (v1.0.3 = `632ee970b498a78c3236a7e689967481fc7f71193a125b85ba3110a792570d35`).
 
 **Do not paste the test Payment Link into `public/assets/js/checkout.js`.** Open it directly from the Dashboard so the site's buttons stay inactive.
 
@@ -52,7 +52,7 @@ Confirm these on Stripe's testing page. Managed Payments may handle disputes dif
 | # | Requirement | Procedure | Pass condition |
 |---|---|---|---|
 | 1 | **Paid-session verification** | Pay with 4242 via the test Payment Link | Lands on thank-you.html, shows "Your Cleaning Business AI Growth OS is ready" |
-| 2 | **Exact approved ZIP delivered** | Click "Download the ZIP" and compute SHA-256 of the saved file (`shasum -a 256 <file>` on Mac, `certutil -hashfile <file> SHA256` on Windows) | Equals the recorded hash; filename correct; opens; 51 files |
+| 2 | **Exact approved ZIP delivered** | Click "Download the ZIP" and compute SHA-256 of the saved file (`shasum -a 256 <file>` on Mac, `certutil -hashfile <file> SHA256` on Windows) | Equals the recorded hash; filename correct; opens; 50 files |
 | 3 | **Correct-product verification** | Temporarily set `STRIPE_PRICE_ID` to the **second** test price, redeploy, reload the thank-you link from #1 | Shows "We couldn't match this order", no download. Then restore the $149 price ID. |
 | 4 | **Unpaid / declined** | Pay with 0002 and 9995; also open thank-you.html with a made-up `session_id=cs_test_...` | No download in any case |
 | 5 | **Refund detection** | Refund the #1 payment in the Dashboard (or via the Managed Payments refund route), then reload its thank-you link | "This order was refunded", no download. A link generated **before** the refund stops working once its 15 minutes run out. |

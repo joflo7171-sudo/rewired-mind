@@ -9,7 +9,7 @@
 
 - **Rebuild procedure:**
   1. Change only READ-ME-FIRST.txt; the workbooks stay byte-identical.
-  2. Bump the version to **v1.0.3** in the READ-ME title line and the ZIP filename.
+  2. Bump the version to **v1.0.4** (v1.0.3 is the Google Sheets dropdown fix) in the READ-ME title line and the ZIP filename.
   3. Run `audit_zip.py` (it must report 0 problems) and record the new SHA-256.
   4. Copy the new ZIP into `operatorgrid-site/private/`.
   5. Set `PRODUCT_ZIP_NAME` on the host.

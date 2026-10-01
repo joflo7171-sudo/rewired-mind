@@ -155,3 +155,28 @@
   - First CLEAN job dated today: 3.42 estimated hours, Unpaid status, dashboard revenue $200 and 1 job completed.
 - **Results:** 56/56 automated tests passed. 43/43 schema-checkable parts in each workbook are valid against the ISO/ECMA OOXML schemas. The buyer-ZIP audit found 0 problems.
 - **Still outstanding:** real Microsoft Excel and Google Sheets testing. It wasn't possible here: there's no Excel in this environment, and the Drive connector can't upload binary files of this size.
+
+## v1.0.3 (2026-10-01): Google Sheets dropdown fix
+- **Found by the real Google Sheets test of v1.0.2:**
+  - **Calculations:** every calculated value matched.
+  - **Dropdowns:** only 2 of the 65 dropdowns survived Google's conversion.
+- **Root cause:** list dropdowns that pull from a range were stored with a leading `=` (for example `='SETTINGS'!$F$5:$F$24`). That isn't the standard file form. Google Sheets silently drops such dropdowns; LibreOffice tolerated them.
+- **How it was proven:** two small test workbooks were uploaded and converted by Google.
+  - 8 storage variants without `=` were all kept, including named ranges, cross-sheet ranges and sheet names containing `&`.
+  - With the same dropdown written with and without `=`, only the one without `=` was kept.
+- **Fix:** `build_workbook.py` no longer adds `=` to dropdown sources (7 lines).
+- **Scope of change:** the only change in both workbooks is the removed `=` in the 65 dropdown definitions. Every formula, cached value, chart, format, name and link is byte-identical to v1.0.2.
+- **Results:**
+  - 56/56 automated tests passed.
+  - All 23 worksheets in each workbook are schema-valid.
+  - LibreOffice keeps all 65 dropdowns.
+  - The buyer-ZIP audit found 0 problems.
+  - The ZIP's 50 files are identical to v1.0.2 except the 2 workbooks and the READ-ME version line.
+  - Delivery tests: 15/15 unit and 34/34 browser checks passed.
+- **Known Google Sheets limitation (cosmetic, not changed):** Google Sheets doesn't allow named ranges in conditional formatting. So 5 amber "below target margin" highlight rules, which use `TargetMargin`, are dropped in Sheets.
+  - Values and the "Margin check" text still work.
+  - Excel and LibreOffice show the highlight.
+- **Still outstanding:**
+  - re-upload v1.0.3 to Google Sheets to confirm 65/65 dropdowns on the real files;
+  - the Sheets interaction tests;
+  - real Microsoft Excel testing.

@@ -14,7 +14,7 @@ export function config(env = process.env) {
     signingSecret: env.DOWNLOAD_SIGNING_SECRET || "", // long random string (32+ characters)
     windowDays: Number(env.DOWNLOAD_WINDOW_DAYS || 30),     // how long after purchase a buyer can self-serve downloads
     linkMinutes: Number(env.DOWNLOAD_LINK_MINUTES || 15),   // lifetime of each signed download link
-    zipName: env.PRODUCT_ZIP_NAME || "OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip",
+    zipName: env.PRODUCT_ZIP_NAME || "OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.3.zip",
     zipPath: env.PRODUCT_ZIP_PATH || "",
     stripeApi: env.STRIPE_API_BASE || "https://api.stripe.com",
   };

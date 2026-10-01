@@ -9,7 +9,7 @@ import { startMockStripe, PRICE } from "./mock-stripe.mjs";
 const PW = process.env.PLAYWRIGHT_MODULE || "/opt/node22/lib/node_modules/playwright/index.mjs";
 const { chromium } = await import(PW);
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
-const ZIP = "OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip";
+const ZIP = "OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.3.zip";
 const KEY = "rk_test_mockkey";
 const mock = await startMockStripe(KEY);
 Object.assign(process.env, { STRIPE_SECRET_KEY: KEY, STRIPE_PRICE_ID: PRICE, DOWNLOAD_SIGNING_SECRET: "y".repeat(40),

@@ -1,8 +1,8 @@
-# Excel + Google Sheets Test Checklist — Cleaning Business AI Growth OS v1.0.2
+# Excel + Google Sheets Test Checklist — Cleaning Business AI Growth OS v1.0.3
 
 **Why:** all formula testing so far ran in LibreOffice Calc (53/53 automated tests passed). Before taking money, confirm the same results in **real Microsoft Excel** and **real Google Sheets**. Allow about 45 minutes in total.
 
-**Files:** use the copies **inside** `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.2.zip` (unzip first). Work on copies so the originals stay untouched.
+**Files:** use the copies **inside** `OperatorGrid-Cleaning-Business-AI-Growth-OS-v1.0.3.zip` (unzip first). Work on copies so the originals stay untouched.
 
 **How to record:** mark each line ✅ / ❌. For any ❌, take a screenshot showing the cell and the formula bar.
 
