@@ -1,0 +1,6 @@
+# PREVIEW: blocks all crawling. At launch replace with:
+#   User-agent: *
+#   Allow: /
+#   Sitemap: https://getoperatorgrid.com/sitemap.xml
+User-agent: *
+Disallow: /
