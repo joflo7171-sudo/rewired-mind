@@ -1888,6 +1888,13 @@ def build(out_path, demo):
         ws.page_setup.orientation = "landscape" if ws.title != "START HERE" else "portrait"
         ws.print_options.horizontalCentered = True
         ws.page_margins.left = ws.page_margins.right = 0.4
+    if os.environ.get("SCREENSHOT"):
+        areas = {"LEADS": "A1:Q24", "JOBS": "A1:P24", "PROFITABILITY": "A1:P13", "RECURRING": "A1:R17",
+                 "QUOTE BUILDER": "A1:H41", "SCHEDULE": "A1:H22", "CUSTOMERS": "A1:S24", "MONTHLY": "A1:N40"}
+        for ws in wb.worksheets:
+            ws.print_area = areas.get(ws.title, ws.print_area or "A1:A1") if ws.title in areas or ws.title in ("DASHBOARD", "START HERE") else "A1:A1"
+            if ws.title in ("DASHBOARD", "START HERE"):
+                ws.print_area = None
     wb.active = 0
     wb.calculation.fullCalcOnLoad = True
     wb.save(out_path)
