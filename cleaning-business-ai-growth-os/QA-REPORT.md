@@ -176,7 +176,13 @@
 - **Known Google Sheets limitation (cosmetic, not changed):** Google Sheets doesn't allow named ranges in conditional formatting. So 5 amber "below target margin" highlight rules, which use `TargetMargin`, are dropped in Sheets.
   - Values and the "Margin check" text still work.
   - Excel and LibreOffice show the highlight.
+- **Confirmed in real Google Sheets (2026-10-04):** the real v1.0.3 DEMO and CLEAN files pass, read-only and cell by cell against the build.
+  - 65/65 dropdowns, covering all 29,954 cells.
+  - 62,232/62,232 formulas, with 0 error cells.
+  - Charts, names, links, filters, frozen panes and merges all kept.
+  - DEMO: Revenue $6,070, Margin 42.7%, Quote $522.50.
+  - CLEAN: only the 5 TODAY cells differ, because Google uses the local time zone.
+  - Details: `operatorgrid-launch/09-GOOGLE-SHEETS-VALIDATION-PLAN.md`, section 0.
 - **Still outstanding:**
-  - re-upload v1.0.3 to Google Sheets to confirm 65/65 dropdowns on the real files;
   - the Sheets interaction tests;
   - real Microsoft Excel testing.

@@ -1,10 +1,32 @@
-# Google Sheets validation: results (2026-10-01)
+# Google Sheets validation: results
+
+## 0. v1.0.3 final result (2026-10-04): PASS
+The real v1.0.3 workbooks were converted by Google Sheets in your Drive. I exported Google's recalculated copies and compared them cell by cell with the approved v1.0.3 build, read-only.
+
+| Check | DEMO (`v1.0.3 - …-DEMO`) | CLEAN (`v1.0.3 - …-CLEAN`) |
+|---|---|---|
+| Dropdowns: definitions and covered cells | **65 / 65**, all 29,954 cells, same list source | **65 / 65**, all 29,954 cells, same list source |
+| Formulas still live formulas | 62,232 / 62,232 | 62,232 / 62,232 |
+| Formula results identical to the build | **62,232 / 62,232** | 62,227 / 62,232 (the 5 TODAY-driven cells; see section 1) |
+| Spreadsheet error cells | **0** | **0** |
+| Charts / named ranges / tab links | 4 / 25 / 84, all kept | 4 / 25 / 84, all kept |
+| Filters / frozen panes / merged cells | 14 / 21 / 184, all kept | 14 / 21 / 184, all kept |
+| Key values | DASHBOARD Revenue (B6) **$6,070** · Gross Margin (F6) **42.7%** · QUOTE BUILDER G16 **$522.50** | System date today (local time zone) · reporting month and year correct · dashboard blank |
+
+**Notes:**
+- Google lists 63 dropdown entries, not 65, because it merged 2 pairs of identical dropdowns. Every original cell is still covered.
+- The amber "below target margin" highlight is still a known cosmetic Google limitation (section 1).
+- **Still open:** the interaction tests (section 2, steps 4–6) and real Microsoft Excel testing.
+
+---
+
+## v1.0.2 results (2026-10-01), kept for history
 
 **Tested:** v1.0.2 DEMO and CLEAN, converted to Google Sheets in your Drive. I read them by exporting Google's own recalculated copy, so the values below are Google's results, not cached values.
 
 **Verdict:**
 - **Calculations: PASS.**
-- **Dropdowns: FAIL in v1.0.2 → fixed in v1.0.3.** The fix is proven on a test file; it has not yet been re-run on the real v1.0.3 files.
+- **Dropdowns: FAIL in v1.0.2 → fixed in v1.0.3**, confirmed on the real v1.0.3 files (section 0).
 - **Interaction tests: NOT RUN.** They need cell edits, which the connector can't make.
 
 ## 1. Results on v1.0.2 as converted by Google

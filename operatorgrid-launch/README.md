@@ -14,9 +14,9 @@
 
 ## Current state
 - **Product:** v1.0.3 (DEMO + CLEAN). 56/56 internal tests pass and the buyer-ZIP audit is clean.
-  - **Google Sheets:** all calculated values match (v1.0.2 converted by Google).
-  - v1.0.2 lost 63 of 65 dropdowns in Google Sheets; **v1.0.3 fixes this**.
-  - The v1.0.3 fix is proven on a test file, but v1.0.3 itself has not yet been opened in Google Sheets.
+  - **Google Sheets: PASS on the real v1.0.3 files** (2026-10-04).
+    - 65/65 dropdowns, 62,232 formulas, 0 errors.
+    - DEMO: $6,070 / 42.7% / $522.50.
   - The interaction tests are still pending.
   - **Not yet tested in real Excel.**
 - **Website:** preview only, in `operatorgrid-site/`. noindex is on, robots.txt blocks crawling, the sitemap is not submitted, checkout is inactive and the support and legal pages are placeholders.
