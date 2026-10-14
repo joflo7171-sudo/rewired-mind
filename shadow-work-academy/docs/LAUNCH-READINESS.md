@@ -32,6 +32,7 @@ The single failure was a **test artifact, not a product defect**: the check aske
 Also fixed during review (found by looking at the PDFs, which automated checks missed): weekly-tracker cards split across pages, a leftover disclosure triangle in the PDF, an almost-empty "Resource Library" divider page, an orphaned table heading, and the sales page claiming 63 pages when the workbook is 60 (page-count claims are now generated from the built PDF and tested).
 
 ## 3. Changes made in this pass
+* **Visual polish pass** (sales site only, content and claims unchanged): layered hero with real screenshots, refined type/cards/pricing, reveal-on-scroll that is reduced-motion and print safe, mobile header fix. Added `site/_headers` (strict CSP, no third parties) and `site/404.html` for hosting.
 * Added short, clearly-labelled fictional **worked examples** for the Module 1, 3 and 5 worksheets (the reference product ships sample data; this is the equivalent onboarding aid). Also in the PDF workbook.
 * Sales page: "at a glance" strip, **What you need to get started**, **What is not included**, softened competitor comparison ("many… often…"), no unsupported claims.
 * **Bundled the fonts** (SIL OFL licensed, licenses included in `fonts/`). Result: no third-party request at all from the Academy; offline look matches online; privacy copy simplified and now accurate.
@@ -46,7 +47,8 @@ Also fixed during review (found by looking at the PDFs, which automated checks m
 2. **Which Gumroad store?** The repo's quiz uses `therewiredmind.gumroad.com`; your Drive doc "Rewired Mind — Gumroad Sales Copy" says `confidencefixhub.gumroad.com`. I can't tell which is current. Confirm before creating the product.
 3. **End-to-end test purchase** (checklist in `docs/GUMROAD-SETUP-AND-TEST-PURCHASE.md`). Nothing about checkout, email or delivery is verified until this is done.
 4. **Legal review** of refund, terms, privacy, disclaimer (`docs/LEGAL-AND-TRUST-REVIEW.md`), including your approval of the 30-day refund promise. Then remove the `LEGAL REVIEW REQUIRED` comments.
-5. **Host the site** on `shadowworkacademy.org` (your DNS/hosting action; deploy `dist/site/`). I did not deploy or touch DNS.
+5. **Connect the domain and host the site.** Verified: `shadowworkacademy.org` is **not** connected to any of your 10 Netlify sites, and I cannot check who controls its DNS. Follow `docs/DOMAIN-SETUP.md` (new Netlify project, DNS records, HTTPS). I did not deploy or touch DNS.
+5b. **Brand/trademark review of "The Shadow Work Academy"** before launch or ad spend (`docs/LEGAL-AND-TRUST-REVIEW.md` §E). I could not find the existing use you mentioned; please send the link.
 6. **Price decision** (see below). Not a blocker to *building*, a blocker to *launching sensibly*.
 
 **P1 — should be done before driving traffic**

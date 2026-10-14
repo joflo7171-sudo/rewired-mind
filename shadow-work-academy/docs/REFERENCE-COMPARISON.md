@@ -32,5 +32,8 @@ Nothing was copied: no finance content, branding or visuals.
 ## Recommendation, limited by what I have seen
 The reference product has a tangible, measurable output (a cash number), so a sales page can show a screenshot of a result. The Academy's output is personal and qualitative, which makes the **free Module 1 sample** and real screenshots of worksheets the honest equivalent of "see it work". The strongest conversion lever I can recommend without having seen the reference page is an **email-gated sample** (feeds the Rewired Mind list, your stated priority) — it needs your approval and a privacy-policy update, so I have not built it.
 
+## New finding: where the reference lives
+Your Netlify account has a project `cash-command-os` whose primary URL is `https://cashcommandos.com` (Netlify Forms enabled; current deploy ready). So the reference sales site is a Netlify-hosted site, not something I can reach from here. The read-only Netlify tools I have do not expose file contents. Fastest way to unblock the comparison: in Netlify open the `cash-command-os` project → Deploys → the current deploy → download the deploy (or give me the source repo/zip), or save full-page desktop and mobile screenshots.
+
 ## What I need to finish this comparison
 Any one of: the cashcommandos.com HTML (browser "Save page as…"), full-page screenshots of desktop and mobile, the site source/repo, plus its product description, FAQ, and the Gumroad (or other) delivery email. Then I can compare section order, above-the-fold clarity, proof elements, pricing presentation, FAQ and checkout flow, and recommend only changes that materially help.

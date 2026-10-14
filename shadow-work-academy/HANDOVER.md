@@ -1,48 +1,58 @@
-> **Superseded by the launch pass.** Current status, test results and blockers: `docs/LAUNCH-READINESS.md`. Checkout and test purchase: `docs/GUMROAD-SETUP-AND-TEST-PURCHASE.md`. Legal/trust: `docs/LEGAL-AND-TRUST-REVIEW.md`. Reference: `docs/REFERENCE-COMPARISON.md`. Experiment: `docs/LAUNCH-EXPERIMENT.md`. The text below is the original build handover; figures there (63 pages, Google Fonts, 177 checks) are out of date.
+# The Shadow Work Academy — handover
 
-# The Shadow Work Academy — Handover
+Everything is in `shadow-work-academy/`. The existing Rewired Mind site, quiz funnel and media were not modified (`git diff` shows no change outside this folder). Nothing has been deployed, published, purchased, or changed in DNS or Netlify.
 
-Everything lives in `shadow-work-academy/`. Nothing outside this folder was changed (the existing Rewired Mind site `index.html`, quiz funnel, and media are untouched).
+**Status: built and tested; not launch-ready.** Detail: `docs/LAUNCH-READINESS.md`.
 
-## Stage 1 finding: Cash Command OS could not be inspected
-`cashcommandos.com` does not resolve from this build environment (DNS failure; outbound traffic is proxied) and the repo contains only the Rewired Mind site, so **no Cash Command OS source, page, or checkout setup was seen.** The structure, UX and delivery model here follow your brief, not the reference. The only existing pattern found and reused: Rewired Mind sells through Gumroad (`therewiredmind.gumroad.com`) and uses `support@rewiredmind.org`.
-To close the gap, send either the Cash Command OS project files, or page screenshots/exported HTML, plus how it delivers files today.
-
-## What was built
+## What exists
 | Path | What |
 |---|---|
-| `content/module1-6.js`, `content/resources.js` | Single source of truth for all course text, worksheets, scripts, resource definitions (~7,000 words) |
-| `app/` | Interactive Academy (static HTML/JS/CSS, no server): welcome, dashboard, 6 modules, worksheets, completion + insight capture, progress, resource library, backup/restore/erase, help & privacy |
-| `app/print.html` + `tools/build-pdfs.js` | Renders PDFs from the same content |
-| `resources/` | Complete Workbook (63 pp) + 9 PDF resources |
-| `site/` | Sales site: `index.html`, refund, terms, privacy, disclaimer, thank-you, sitemap, robots, free Module 1 sample PDF, real screenshots |
-| `package/START-HERE.html` | Customer start page inside the ZIP |
-| `dist/The-Shadow-Work-Academy.zip` | **The customer deliverable** (upload to Gumroad) |
-| `dist/site/` | Deployable copy of the sales site |
+| `content/` | Course text for 6 modules, worksheets, scripts, resource definitions (single source of truth) |
+| `app/` | Interactive Academy (static HTML/JS/CSS; works offline; answers kept in the browser; zero network requests) |
+| `fonts/` | Bundled Cormorant Garamond + Inter (SIL OFL, licenses included) |
+| `resources/` | 60-page workbook + 9 resource PDFs |
+| `site/` | Sales site for **https://shadowworkacademy.org/** (+ legal pages, thank-you, 404, `_headers`, sitemap, robots, free Module 1 sample) |
+| `dist/The-Shadow-Work-Academy.zip` | **Customer deliverable** (upload to Gumroad) |
+| `dist/site/` | Deployable site build |
+| `tools/` | `package.py` (build), `qa.js` (tests the extracted ZIP and site), `pdfcheck.py`, `launch-check.py` (fails until blockers are cleared), `configure.py` (set checkout URL / site domain), `build-pdfs.js`, `screenshots.js` |
+| `docs/` | `LAUNCH-READINESS.md`, `DOMAIN-SETUP.md`, `GUMROAD-SETUP-AND-TEST-PURCHASE.md`, `LEGAL-AND-TRUST-REVIEW.md`, `REFERENCE-COMPARISON.md`, `LAUNCH-EXPERIMENT.md` |
 
-Rebuild: `node tools/build-pdfs.js && node tools/screenshots.js && python3 tools/package.py` (needs Node + Playwright with Chromium, Python 3, poppler for screenshots).
+Rebuild: `NODE_PATH=<playwright> node tools/build-pdfs.js && python3 tools/package.py`. Test: `NODE_PATH=<playwright> AXE=<axe.min.js> node tools/qa.js`.
 
-## Key decisions
-- **Formats:** interactive HTML (works offline) + PDF. Not Excel/Sheets: the product is reflection and reading, not calculation.
-- **Privacy model:** answers are stored in the customer's browser (localStorage) on their device. The Academy files contain no analytics, forms or upload code (verified by reading the code). Google Fonts load when online; this is disclosed. A backup/restore file is provided because browser data can be cleared.
-- **Delivery:** Gumroad ZIP download. The paid content is deliberately **not** hosted online, because a public static URL cannot be access-controlled. A hosted members area would need a real auth platform (later option).
-- **Checkout:** Gumroad, kept separate from your other products.
+## Latest test results
+`tools/qa.js` (extracted customer ZIP + built site): **281 passed, 0 failed** (repeated runs). `tools/pdfcheck.py`: all passed. `tools/launch-check.py`: **fails on purpose** (checkout placeholder, legal markers). Not tested: live checkout, purchase email, Gumroad download, Safari/iOS/Firefox, Windows/Mac/phone unzip, Acrobat/Preview.
 
-## Testing done (automated, headless Chromium)
-177 checks, 176 pass. Covered: unzipped package opened via `file://`; all 6 modules have all 7 sections; answers persist across reload; completion + dashboard progress; backup file contents; restore; erase; 10 PDF links resolve; tracker/weekly pages; no console errors; no horizontal overflow at 375px (app and site); every internal site link/anchor; one H1 per page; image alt text. The one reported failure is a test artifact (lazy-loaded images aren't loaded in that check); I confirmed separately that all 7 site images load after scrolling.
+## Domain: https://shadowworkacademy.org/ (primary)
+Done in code: canonical, `og:url`, `og:image`, structured data, sitemap, robots and internal links use the new domain. Old `rewiredmind.org/shadow-work-academy` references: **none** in the production build. Intentional `rewiredmind.org` uses only: the "A product of Rewired Mind" link and `support@rewiredmind.org`. `launch-check.py` enforces all of this and that the checkout URL is **never on the website domain** (it must be a Gumroad URL; paid files are never hosted on the site).
 
-**Not tested / not possible here:** the live Gumroad checkout, purchase email, ZIP download from Gumroad, real Safari/iOS/Firefox rendering, screen-reader testing, and a formal WCAG audit. Payment and automated delivery are **not verified**.
+Verified: the domain is **not connected** to any of your 10 Netlify sites (read-only check), and **I cannot tell whether you control its DNS** (this environment cannot reach it; no registrar access).
 
-## What you must do before launch
-1. **Create the Gumroad product** ($197), upload `dist/The-Shadow-Work-Academy.zip`, set the description to match the site, set the receipt/redirect to the thank-you page, and enable a refund contact. Then replace the placeholder URL `https://therewiredmind.gumroad.com/l/shadow-work-academy` throughout `site/*.html` (`grep -r gumroad site/`) and re-run `tools/package.py`.
-2. **Make a test purchase** (Gumroad test mode / 100% coupon): confirm the email, download, unzip, open START-HERE.html, and the receipt wording.
-3. **Legal approval.** Refund (30 days is my proposal), terms, privacy and disclaimer are drafts, flagged with comments in the HTML. Have a lawyer review for your jurisdiction. Confirm tax/VAT handling.
-4. **Founder section:** I used only brand-level information. Add your name, story, and photo if you want a personal intro; I invented no credentials.
-5. **Hosting and domain:** decide where the site lives (I assumed `rewiredmind.org/shadow-work-academy/` for canonical/sitemap URLs; change if not). Do not change DNS until you decide. Add Meta Pixel/analytics only if you want them, and update the privacy policy when you do.
-6. **Review the content yourself**, especially safety wording, and consider having a licensed clinician review before launch. I made no scientific-efficacy claims, testimonials, or user counts.
-7. Pricing: $197 is untested. Consider a lower entry offer or a pre-launch to validate demand.
+Steps (full detail and sources in `docs/DOMAIN-SETUP.md`; all need your approval and none have been done):
+1. Confirm registrar, who holds the nameservers, existing records (MX, parked A/AAAA, CAA), auto-renew/lock.
+2. Create a **new Netlify project** (e.g. `shadow-work-academy`), deploy `dist/site/` only after the Gumroad URL and legal approvals are in. Keep `rewiredmind-home`/quiz untouched.
+3. Add `shadowworkacademy.org` (apex primary) and `www` (redirect to apex).
+4. DNS, either Netlify DNS (change nameservers) or external DNS: apex ALIAS/ANAME → `apex-loadbalancer.netlify.com` (or A `75.2.60.5` if no ALIAS support), `www` CNAME → `<project>.netlify.app`; delete conflicting parked/AAAA records; keep MX.
+5. HTTPS: Netlify issues a free Let's Encrypt certificate after DNS verifies; enable Force HTTPS; allow `letsencrypt.org` if a CAA record exists; add HSTS only after both hostnames work.
+6. Run the verification checklist in `docs/DOMAIN-SETUP.md` §6; rollback is §7.
 
-## Known limitations
-- No cross-device sync; backup file is the transfer method.
-- PDF fields are blank write-in boxes, not fillable form fields (the online versions are the editable form).
-- Fonts require internet for the intended look; offline fallback is Georgia/system sans.
+## Brand/trademark flag
+"The Shadow Work Academy" needs a **brand and trademark review before launch or any ad spend**. You told me the name has existing use; my quick searches found no exact-name business or page on this domain, only many similar "shadow work" courses. That is not clearance. Send me the link you have in mind; get an attorney clearance search and a fallback name. See `docs/LEGAL-AND-TRUST-REVIEW.md` §E.
+
+## Remaining launch blockers (priority order)
+**P0**
+1. Confirm which Gumroad store (`therewiredmind` in the quiz funnel vs `confidencefixhub` in a Drive doc), create the product **unpublished**, then `python3 tools/configure.py --checkout <URL>`. Placeholder currently `https://checkout.invalid/shadow-work-academy` in `site/index.html`, `404.html`, `disclaimer.html`, `refund.html`, `terms.html`, `privacy.html`, `thank-you.html`.
+2. End-to-end test purchase: email, download, unzip, open, refund (`docs/GUMROAD-SETUP-AND-TEST-PURCHASE.md`). Nothing about checkout/delivery is verified until then.
+3. Legal review of refund/terms/privacy/disclaimer and your approval of the 30-day refund; then remove the `LEGAL REVIEW REQUIRED` comments.
+4. Brand/trademark clearance (above).
+5. Domain ownership/DNS confirmation and hosting (above).
+6. Price decision: lessons total ~2,950 words (~6,000 words with all course text); $197 is a hard sell to cold traffic and the only Rewired Mind price I can see is $9. Test $47–$97 first or add depth (`docs/LAUNCH-EXPERIMENT.md`).
+
+**P1**
+7. Manual browser/device pass (Safari, iOS, Firefox; Windows/Mac/phone unzip).
+8. Clinician read of the course content and safety wording.
+9. Analytics decision (none today; adding any needs approval and a privacy-policy update).
+10. Founder/brand section (brand-level only today).
+11. Cash Command OS sales-page comparison: the reference is your Netlify project `cash-command-os` (`cashcommandos.com`); download its deploy or share the source/screenshots (`docs/REFERENCE-COMPARISON.md`).
+
+## Actions only you can take
+Approve/perform: Gumroad product + test purchase; legal and trademark review; domain/DNS confirmation and any DNS change; Netlify project creation and first deploy; price decision; analytics decision; publishing.

@@ -2,7 +2,7 @@
 """Set launch URLs in the sales site, then rebuild dist/.
 
   python3 tools/configure.py --checkout https://YOURSTORE.gumroad.com/l/YOURPRODUCT
-  python3 tools/configure.py --site-base https://rewiredmind.org/shadow-work-academy/
+  python3 tools/configure.py --site-base https://example.org/
 
 Replaces the current value everywhere under site/. Run tools/launch-check.py afterwards.
 """
@@ -23,8 +23,10 @@ if a.checkout:
         t = open(f).read(); open(f, 'w').write(t.replace(old, a.checkout))
     print('checkout:', old, '->', a.checkout)
 if a.site_base:
-    if not a.site_base.endswith('/'): sys.exit('site base must end with /')
-    old = current(r'https://[^\s"<>]*/shadow-work-academy/', all_text)
+    if not a.site_base.endswith('/') or not a.site_base.startswith('https://'): sys.exit('site base must be an https URL ending with /')
+    m = re.search(r'<link rel="canonical" href="(https://[^"]*?/)"', open(os.path.join(root, 'site', 'index.html')).read())
+    if not m: sys.exit('could not read current site base from site/index.html canonical')
+    old = m.group(1)
     for f in files:
         t = open(f).read(); open(f, 'w').write(t.replace(old, a.site_base))
     print('site base:', old, '->', a.site_base)
