@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>The Shadow Work Academy — Print</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+body{font-size:10.5pt;line-height:1.55;background:#fff}
+.page-break{break-before:page}
+.cover{min-height:92vh;display:flex;flex-direction:column;justify-content:center;text-align:left;padding:0 10px}
+.cover h1{font-size:46pt;margin:.1em 0}.cover .tag{font:italic 20pt var(--serif);color:var(--sage-d)}
+.cover .rule{width:80px;height:3px;background:var(--sage-d);margin:24px 0}
+.mhead{border-bottom:2px solid var(--sage-d);margin-bottom:14px;padding-bottom:6px}.mhead h1{font-size:30pt;margin:.1em 0}
+.wrap{max-width:none;padding:0}
+textarea{min-height:70px;background:#fff!important}
+.field label,.field legend{font-size:10pt}
+.grid td textarea{min-height:96px}
+textarea{resize:none}
+.tablewrap{break-inside:avoid;overflow:visible}
+table.grid{min-width:0;table-layout:fixed}
+.grid th{font-size:8pt}
+h3,h2{break-after:avoid}
+.card,.callout{margin:12px 0;padding:14px 18px}
+.toc,.btn,.actions,.pager,#saveNote{display:none!important}
+.disc{font-size:9pt;color:#55534e;border-top:1px solid #ddd3bd;margin-top:30px;padding-top:8px}
+@page{size:Letter;margin:0.75in}
+</style></head><body>
+<div id="out"></div>
+<script>window.SWA_PRINT=true;</script>
+<script src="../content/module1.js"></script><script src="../content/module2.js"></script><script src="../content/module3.js"></script>
+<script src="../content/module4.js"></script><script src="../content/module5.js"></script><script src="../content/module6.js"></script>
+<script src="../content/resources.js"></script><script src="app.js"></script>
+<script>
+(function(){
+  var U=SWA_UI, q=new URLSearchParams(location.search).get('only'), out='';
+  function strip(h){return h.replace(/<p class="actions">[\s\S]*?<\/p>/g,'').replace(/<p class="eyebrow"><a[\s\S]*?<\/p>/,'').replace(/<h1>/,'<h1 class="rtitle">').replace(/<p class="muted small" id="saveNote">[^<]*<\/p>/,'');}
+  var disc='<p class="disc">The Shadow Work Academy is an educational self-reflection program and is not therapy, diagnosis, or medical advice. Personal use only; please do not share or resell.</p>';
+  if(q==='workbook'){
+    out+='<div class="cover"><p class="eyebrow">Complete Academy Workbook</p><h1>The Shadow Work Academy</h1><div class="rule"></div><p class="tag">From self-doubt to self-trust.</p><p style="margin-top:60px">Six modules · Lessons · Scenarios · Reflections · Worksheets · Action steps</p><p class="muted">Version '+SWA.meta.version+'</p></div>';
+    var qs=SWA.resources.filter(function(r){return r.id==='quickstart'})[0];
+    out+='<div class="page-break">'+strip(U.vResource('quickstart'))+'</div>';
+    SWA.modules.forEach(function(m){
+      out+='<div class="page-break"><div class="mhead"><p class="eyebrow">Module '+m.id+' of 6 · about '+m.minutes+' minutes</p><h1>'+U.esc(m.title)+'</h1><p class="lead">'+U.esc(m.tagline)+'</p></div>'+U.moduleBody(m)+'<div class="card"><h3>Completion record</h3>'+U.field('x'+m.id,'My key insight from this module:',4)+'<p>Date completed: ____ / ____ / ________</p></div></div>';
+    });
+    out+='<div class="page-break"><div class="mhead"><h1>Resource Library</h1><p class="lead">Reusable worksheets and trackers.</p></div></div>';
+    SWA.resources.filter(function(r){return r.type!=='guide'&&r.type!=='ref'}).forEach(function(r){out+='<div class="page-break">'+strip(U.vResource(r.id))+'</div>'});
+    out+=disc;
+  } else if(q==='sample'){
+    var m1=SWA.modules[0];
+    out+='<div class="cover"><p class="eyebrow">Free sample</p><h1>The Shadow Work Academy</h1><div class="rule"></div><p class="tag">Module 1: Meet Your Shadow</p><p style="margin-top:50px">This is the complete first module of the six-module academy, exactly as customers receive it.</p></div><div class="page-break"><div class="mhead"><p class="eyebrow">Module 1 of 6</p><h1>'+U.esc(m1.title)+'</h1><p class="lead">'+U.esc(m1.tagline)+'</p></div>'+U.moduleBody(m1)+'</div>'+disc;
+  } else {
+    var r=SWA.resources.filter(function(x){return x.id===q})[0];
+    if(r.type==='ref'){var m=U.mod(r.ref.module);out+='<div class="mhead"><p class="eyebrow">Shadow Work Academy</p><h1>'+U.esc(r.title)+'</h1><p class="lead">'+U.esc(r.blurb)+'</p></div>'+U.worksheet(m);}
+    else out+=strip(U.vResource(r.id));
+    out+=disc;
+  }
+  document.getElementById('out').innerHTML='<div class="wrap">'+out+'</div>';
+  document.querySelectorAll('details').forEach(function(d){d.open=true});
+  document.querySelectorAll('textarea').forEach(function(t){t.value=''});
+})();
+</script></body></html>

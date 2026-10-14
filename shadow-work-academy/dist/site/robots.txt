@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rewiredmind.org/shadow-work-academy/sitemap.xml
