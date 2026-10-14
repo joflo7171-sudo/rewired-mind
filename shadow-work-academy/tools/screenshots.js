@@ -22,7 +22,9 @@ const root = path.resolve(__dirname, '..'); const url = 'file://' + root + '/app
   await m.goto(url + '#/module/5'); await m.waitForTimeout(500);
   await m.screenshot({ path: root + '/site/img/preview-mobile.png' });
   await b.close();
-  for (const [pg, name] of [[1,'workbook-cover'],[4,'workbook-module'],[8,'workbook-worksheet']])
+  const wb = root + '/resources/00-complete-academy-workbook.pdf';
+  const pageWith = (needle) => { for (let i = 1; i < 70; i++) { const t = execSync(`pdftotext -f ${i} -l ${i} "${wb}" -`).toString(); if (t.includes(needle)) return i; } throw new Error('page not found ' + needle); };
+  for (const [pg, name] of [[1,'workbook-cover'],[pageWith('Meet Your Shadow'),'workbook-module'],[pageWith('Looking across your three rows'),'workbook-worksheet']])
     execSync(`pdftoppm -r 70 -png -singlefile -f ${pg} -l ${pg} "${root}/resources/00-complete-academy-workbook.pdf" "${root}/site/img/${name}"`);
   console.log('done');
 })();

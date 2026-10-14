@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>The Shadow Work Academy — Print</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 <style>
 body{font-size:10.5pt;line-height:1.55;background:#fff}
@@ -14,7 +14,19 @@ textarea{min-height:70px;background:#fff!important}
 .field label,.field legend{font-size:10pt}
 .grid td textarea{min-height:96px}
 textarea{resize:none}
-.tablewrap{break-inside:avoid;overflow:visible}
+.tablewrap{overflow:visible}
+.tablewrap.short{break-inside:avoid}
+.grid td textarea{min-height:80px}
+tr{break-inside:avoid}
+thead{display:table-header-group}
+.week,details.example,.script,.card,.callout{break-inside:avoid}
+details>summary{list-style:none}
+summary::-webkit-details-marker{display:none}
+.week textarea{min-height:36px;height:36px;padding:4px 8px}
+.week .field{margin:3px 0}
+.week .field label{font-size:8.5pt;margin-bottom:2px}
+.week summary{font-size:13pt;padding:2px 0}
+.week{padding:8px 16px;margin:8px 0}
 table.grid{min-width:0;table-layout:fixed}
 .grid th{font-size:8pt}
 h3,h2{break-after:avoid}
@@ -40,7 +52,6 @@ h3,h2{break-after:avoid}
     SWA.modules.forEach(function(m){
       out+='<div class="page-break"><div class="mhead"><p class="eyebrow">Module '+m.id+' of 6 · about '+m.minutes+' minutes</p><h1>'+U.esc(m.title)+'</h1><p class="lead">'+U.esc(m.tagline)+'</p></div>'+U.moduleBody(m)+'<div class="card"><h3>Completion record</h3>'+U.field('x'+m.id,'My key insight from this module:',4)+'<p>Date completed: ____ / ____ / ________</p></div></div>';
     });
-    out+='<div class="page-break"><div class="mhead"><h1>Resource Library</h1><p class="lead">Reusable worksheets and trackers.</p></div></div>';
     SWA.resources.filter(function(r){return r.type!=='guide'&&r.type!=='ref'}).forEach(function(r){out+='<div class="page-break">'+strip(U.vResource(r.id))+'</div>'});
     out+=disc;
   } else if(q==='sample'){

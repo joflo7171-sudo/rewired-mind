@@ -41,6 +41,7 @@ SWA.modules.push({
     { id: "m3r5", q: "What would a wise, kind friend say about the same situation?" }
   ],
   worksheet: {
+    example: { title: "Completed example (fictional): Priya’s Inner-Critic Reflection", rows: [["1. Situation", "I sent a draft to my manager. The reply was one word: “Noted.”"], ["2. The critic’s words", "“She hated it. She’s losing confidence in me. I should have asked for feedback sooner.”"], ["3. Facts", "The reply said “Noted.” Thursdays are back-to-back meetings for her."], ["4. Assumptions", "That she hated it, that she’s losing confidence, that I should have asked sooner."], ["5. Other explanations", "She’s busy. The draft is fine. She plans to review it later."], ["6. What I’d say to someone I respect", "“One word from a busy person isn’t a verdict. Ask for specifics.”"], ["7. Balanced statement", "I don’t know what “Noted” means yet. I can ask for specific feedback on Friday."], ["8. Practical next step", "Keep working on what I planned, and send a short feedback request on Friday."]] },
     title: "Worksheet: Inner-Critic Reflection",
     intro: "Use a recent situation where your inner critic was loud. Work through each step in order. Write in full sentences if you can; it slows your thinking down in a useful way.",
     summary: [

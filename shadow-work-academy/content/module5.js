@@ -41,6 +41,7 @@ SWA.modules.push({
     { id: "m5r5", q: "Which kind of response would be hardest for you to hold your ground against — anger, guilt, silence, or persuasion?" }
   ],
   worksheet: {
+    example: { title: "Completed example (fictional): Leila’s Boundary Script", rows: [["Needs / limit / value", "Need: uninterrupted time off. Limit: I resent replying outside work hours. Value: being reliable and rested."], ["Context", "Work. My manager often sends requests on Saturday evenings."], ["1. Acknowledge", "“I want to do my best work for you.”"], ["2. State the limit", "“I recharge on weekends, so I’ll reply to non-urgent messages first thing on Monday.”"], ["3. Offer an alternative", "“If something is genuinely urgent, please call me.”"], ["4. If they push back", "“I understand it’s inconvenient. My plan is still to reply on Monday.”"]] },
     title: "Worksheet: Needs, Limits & Boundary Script Builder",
     intro: "Part A clarifies your needs and limits. Part B turns one of them into a ready-to-use script. A full Boundary Scripts Library is included in your resources.",
     summary: [

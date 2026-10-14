@@ -32,7 +32,7 @@
     return '<div class="field"><label for="f_' + id + '">' + esc(label) + '</label><textarea id="f_' + id + '" data-k="' + id + '" rows="' + (rows || 3) + '">' + esc(S.a[id] || '') + '</textarea></div>';
   }
   function table(id, cols, rows) {
-    var h = '<div class="tablewrap"><table class="grid"><thead><tr>' + cols.map(function (c) { return '<th scope="col">' + esc(c.label) + '</th>'; }).join('') + '</tr></thead><tbody>';
+    var h = '<div class="tablewrap' + (rows <= 5 ? ' short' : '') + '"><table class="grid"><thead><tr>' + cols.map(function (c) { return '<th scope="col">' + esc(c.label) + '</th>'; }).join('') + '</tr></thead><tbody>';
     for (var r = 0; r < rows; r++) {
       h += '<tr>' + cols.map(function (c) {
         var k = id + '.' + r + '.' + c.id;
@@ -55,8 +55,12 @@
       }).join('') + '</span></div>';
     }).join('') + '<p class="muted small" id="auditTotal_' + id + '"></p></fieldset>';
   }
+  function exampleHTML(e) {
+    return '<details class="example"><summary>' + esc(e.title) + '</summary><dl>' + e.rows.map(function (r) { return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd>'; }).join('') + '</dl><p class="muted small">Fictional example for illustration. Your own answers can be shorter, messier, and entirely different.</p></details>';
+  }
   function worksheet(m) {
     var w = m.worksheet, id = 'm' + m.id + 'tbl', h = '<h3>' + esc(w.title) + '</h3><p>' + esc(w.intro) + '</p>';
+    if (w.example) h += exampleHTML(w.example);
     if (w.scale) h += scale(w.scale.id, w.scale.label, w.scale.items);
     if (w.checks) h += checks(w.checks.id, w.checks.label, w.checks.options);
     if (w.columns) h += table(id, w.columns, w.rows);
@@ -188,8 +192,8 @@
 
   function vHelp() {
     return '<div class="wrap narrow">' + banner() + '<p class="eyebrow">Help &amp; privacy</p><h1>Help &amp; privacy</h1>' +
-      '<h2>Where is my information stored?</h2><p>Everything you type is saved in your browser’s local storage on this device. This academy page does not include any analytics, forms, or code that sends your answers to a server. Fonts are loaded from Google Fonts when you are online, which means your browser contacts Google to download them. If you open the academy from a folder on your computer, no answers are uploaded.</p>' +
-      '<p>Because the data lives only in this browser: it is not available on other devices, it can be erased if you clear site data or use a private window, and anyone with access to this browser profile could open it. Use Backup regularly, and store backup files privately.</p>' +
+      '<h2>Where is my information stored?</h2><p>Everything you type is saved in your browser’s local storage on this device. This academy page does not include any analytics, forms, or code that sends your answers to a server. The fonts are bundled in the download, so the Academy makes no network requests at all and works fully offline.</p>' +
+      '<p>Because the data lives only in this browser: it is not available on other devices, it can be erased if you clear site data or use a private window, and anyone with access to this browser profile could open it. Use Backup regularly, and store backup files privately. Browsers tie saved answers to where the Academy file is stored, so if you move or rename the folder, download a backup first and restore it afterwards.</p>' +
       '<h2>Printing</h2><p>Every module and resource has a Print button that produces a clean layout. Printed pages and backup files are your responsibility to store safely.</p>' +
       '<h2>Support</h2><p>For access or download problems, contact <a href="mailto:' + SWA.meta.supportEmail + '">' + SWA.meta.supportEmail + '</a>.</p>' +
       '<h2>Important</h2><p>The Shadow Work Academy is educational and not a substitute for therapy or medical advice. If you are in crisis or may harm yourself, contact local emergency services or a crisis line in your country.</p></div>';
@@ -197,6 +201,7 @@
 
   // ---------- routing ----------
   var main = document.getElementById('main');
+  var navigated = false; // keep first Tab on the skip link at page load; move focus to content only on later navigation
   function route() {
     var p = (location.hash || '#/').replace(/^#\/?/, '').split('/');
     var view, key = p[0] || 'welcome';
@@ -213,7 +218,7 @@
     document.title = 'The Shadow Work Academy';
     Array.prototype.forEach.call(document.querySelectorAll('[data-nav]'), function (a) { a.classList.toggle('on', a.getAttribute('data-nav') === key || (key === 'module' && a.getAttribute('data-nav') === 'dashboard')); });
     document.getElementById('nav').classList.remove('open'); document.getElementById('menuBtn').setAttribute('aria-expanded', 'false');
-    window.scrollTo(0, 0); main.focus({ preventScroll: true });
+    window.scrollTo(0, 0); if (navigated) main.focus({ preventScroll: true }); navigated = true;
     bind(key);
     updateAudit();
   }

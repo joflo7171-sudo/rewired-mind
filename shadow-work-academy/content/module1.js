@@ -48,6 +48,7 @@ SWA.modules.push({
     { id: "m1r5", q: "What does this pattern cost you now, in energy, relationships, or choices?" }
   ],
   worksheet: {
+    example: { title: "Completed example (fictional): Maya’s Pattern Map", rows: [["Trigger", "A friend hadn’t replied to a long message after three hours."], ["Automatic reaction", "Tight stomach. Re-read my message four times. Drafted two apologies I didn’t send."], ["Story I told myself", "“I said too much and now they’re annoyed with me.”"], ["What it protected / what it cost", "Protected: preparing an apology felt like control. Cost: an anxious evening and a habit of over-apologizing."], ["What the rows have in common", "When I can’t tell what someone thinks of me, I try to fix it before I know there is a problem."], ["Name for the pattern", "“The Apology Draft”"]] },
     title: "Worksheet: Pattern Map",
     intro: "Choose three recent situations that left you tense, defensive, or drained. Fill in one row for each. Aim for specific facts, not summaries. “My boss changed the deadline in a meeting” is better than “work stress.”",
     columns: [

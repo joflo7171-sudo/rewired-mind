@@ -1,3 +1,5 @@
+> **Superseded by the launch pass.** Current status, test results and blockers: `docs/LAUNCH-READINESS.md`. Checkout and test purchase: `docs/GUMROAD-SETUP-AND-TEST-PURCHASE.md`. Legal/trust: `docs/LEGAL-AND-TRUST-REVIEW.md`. Reference: `docs/REFERENCE-COMPARISON.md`. Experiment: `docs/LAUNCH-EXPERIMENT.md`. The text below is the original build handover; figures there (63 pages, Google Fonts, 177 checks) are out of date.
+
 # The Shadow Work Academy — Handover
 
 Everything lives in `shadow-work-academy/`. Nothing outside this folder was changed (the existing Rewired Mind site `index.html`, quiz funnel, and media are untouched).
