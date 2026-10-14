@@ -60,7 +60,7 @@ const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDi
   }
   for (const n of [1, 3, 5]) { await p.goto(app + '#/module/' + n); ok(await p.locator('details.example').count() === 1, `module ${n} has worked example`); }
   await p.goto(app + '#/module/5'); ok(await p.locator('.script').count() === 16, 'module 5 shows 16 scripts');
-  await p.goto(app + '#/module/4'); await p.check('input[name="m4w_audit.0"][value="4"]', { force: true }); await p.waitForTimeout(400);
+  await p.goto(app + '#/module/4'); await p.locator('label:has(input[name="m4w_audit.0"][value="4"])').click(); await p.waitForTimeout(400);
   ok((await p.locator('#auditTotal_m4w_audit').innerText()).includes('4'), 'audit total updates');
   await p.goto(app + '#/module/2'); await p.check('input[data-k="m2w_conditions.1"]'); await p.waitForTimeout(400);
   await p.goto(app + '#/module/1'); await p.reload();
@@ -147,8 +147,10 @@ const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDi
     links.forEach(l => ok(fs.existsSync(path.join(site, l.split('#')[0] || 'index.html')), pg + ': link ' + l));
     for (const a of await stp.$$eval('a[href^="#"],a[href*=".html#"]', a => a.map(x => x.getAttribute('href').split('#')[1]).filter(Boolean))) ok(await stp.locator('#' + a).count() > 0, pg + ': anchor #' + a);
     await stp.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 500) { scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); } scrollTo(0, 0); });
-    await stp.waitForTimeout(300);
-    ok(await stp.evaluate(() => [...document.images].every(i => i.complete && i.naturalWidth > 0)), pg + ': all images load (after scroll)');
+    await stp.evaluate(() => Promise.race([new Promise(r => setTimeout(r, 4000)), Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })))]));
+    await stp.waitForTimeout(1200); // let reveal transitions finish before scanning
+    const badImgs = await stp.evaluate(() => [...document.images].filter(i => !(i.complete && i.naturalWidth > 0)).map(i => i.getAttribute('src') + ' loading=' + i.loading));
+    ok(badImgs.length === 0, pg + ': all images load (after scroll). Not loaded: ' + JSON.stringify(badImgs));
     await axe(stp, 'site ' + pg);
     await stp.setViewportSize({ width: 375, height: 800 }); await stp.goto(f);
     ok(await stp.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), pg + ': no h-overflow @375');
