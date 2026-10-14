@@ -1,5 +1,7 @@
 # Domain setup: shadowworkacademy.org
 
+> **Hold:** the name, and therefore this domain, has an unresolved trademark risk (`TRADEMARK-AND-COPYRIGHT-CHECK.md`). Do not deploy or point DNS until counsel advises.
+
 Intended primary domain: **https://shadowworkacademy.org/** (apex, no `www`). Nothing in this document has been executed. I have not changed DNS, deployed, published, or purchased anything.
 
 ## 1. What I verified (read-only) and what I could not

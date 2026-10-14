@@ -35,15 +35,19 @@ Steps (full detail and sources in `docs/DOMAIN-SETUP.md`; all need your approval
 5. HTTPS: Netlify issues a free Let's Encrypt certificate after DNS verifies; enable Force HTTPS; allow `letsencrypt.org` if a CAA record exists; add HSTS only after both hostnames work.
 6. Run the verification checklist in `docs/DOMAIN-SETUP.md` §6; rollback is §7.
 
-## Brand/trademark flag
-"The Shadow Work Academy" needs a **brand and trademark review before launch or any ad spend**. You told me the name has existing use; my quick searches found no exact-name business or page on this domain, only many similar "shadow work" courses. That is not clearance. Send me the link you have in mind; get an attorney clearance search and a fallback name. See `docs/LEGAL-AND-TRUST-REVIEW.md` §E.
+## Brand/trademark flag: HIGH RISK, decide before launch
+Full detail: `docs/TRADEMARK-AND-COPYRIGHT-CHECK.md` (not legal advice; registry facts come from search summaries, verify at the USPTO).
+* **Existing use of the exact name:** Pete Isaia operates "The Shadow Work Academy" (`peteisaia.com/academy`, `isaiacoaching.com/academy`), selling shadow-work courses online. Likelihood of confusion looks high.
+* **Registered mark:** SHADOW WORK, U.S. Reg. 1,840,946 (1994, renewed), owner Shadow Work Licensing, LLC, for teaching classes and seminars in psychological self-improvement; pending ORIGINAL SHADOW WORK applications (2024). Several other "shadow work" filings exist, so the term is crowded and contested.
+* **Copyright:** the name is not copyrightable; the course text is original (spot searches found no matching text), but AI-drafted text may have weaker copyright protection, so add human authorship and discuss with counsel.
+* **Recommendation:** do not create the Gumroad product, deploy the domain, or spend on ads until an attorney clears or replaces the name. A rename is cheap now; I can prepare a rename script when you choose a name. The domain `shadowworkacademy.org` may itself need to be dropped.
 
 ## Remaining launch blockers (priority order)
 **P0**
 1. Confirm which Gumroad store (`therewiredmind` in the quiz funnel vs `confidencefixhub` in a Drive doc), create the product **unpublished**, then `python3 tools/configure.py --checkout <URL>`. Placeholder currently `https://checkout.invalid/shadow-work-academy` in `site/index.html`, `404.html`, `disclaimer.html`, `refund.html`, `terms.html`, `privacy.html`, `thank-you.html`.
 2. End-to-end test purchase: email, download, unzip, open, refund (`docs/GUMROAD-SETUP-AND-TEST-PURCHASE.md`). Nothing about checkout/delivery is verified until then.
 3. Legal review of refund/terms/privacy/disclaimer and your approval of the 30-day refund; then remove the `LEGAL REVIEW REQUIRED` comments.
-4. Brand/trademark clearance (above).
+4. **Brand/trademark clearance: elevated to the top blocker** (above). Everything else is wasted if the name changes.
 5. Domain ownership/DNS confirmation and hosting (above).
 6. Price decision: lessons total ~2,950 words (~6,000 words with all course text); $197 is a hard sell to cold traffic and the only Rewired Mind price I can see is $9. Test $47–$97 first or add depth (`docs/LAUNCH-EXPERIMENT.md`).
 

@@ -48,7 +48,7 @@ Also fixed during review (found by looking at the PDFs, which automated checks m
 3. **End-to-end test purchase** (checklist in `docs/GUMROAD-SETUP-AND-TEST-PURCHASE.md`). Nothing about checkout, email or delivery is verified until this is done.
 4. **Legal review** of refund, terms, privacy, disclaimer (`docs/LEGAL-AND-TRUST-REVIEW.md`), including your approval of the 30-day refund promise. Then remove the `LEGAL REVIEW REQUIRED` comments.
 5. **Connect the domain and host the site.** Verified: `shadowworkacademy.org` is **not** connected to any of your 10 Netlify sites, and I cannot check who controls its DNS. Follow `docs/DOMAIN-SETUP.md` (new Netlify project, DNS records, HTTPS). I did not deploy or touch DNS.
-5b. **Brand/trademark review of "The Shadow Work Academy"** before launch or ad spend (`docs/LEGAL-AND-TRUST-REVIEW.md` §E). I could not find the existing use you mentioned; please send the link.
+5b. **Brand/trademark: HIGH RISK, decide first.** An existing business uses the exact name and SHADOW WORK is a registered mark for self-improvement teaching. See `docs/TRADEMARK-AND-COPYRIGHT-CHECK.md`. Pause Gumroad/ads/domain deployment until counsel advises.
 6. **Price decision** (see below). Not a blocker to *building*, a blocker to *launching sensibly*.
 
 **P1 — should be done before driving traffic**
