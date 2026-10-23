@@ -1,0 +1,2 @@
+estimate_id,customer_first_name,estimate_date,estimate_value,age_days,status_in_client_system,touch1_date,touch1_channel,touch2_date,touch2_channel,touch3_date,touch3_channel,reply_yes_no,appointment_booked,approved_date,approved_value,paid_date,commission_due,opt_out
+SAMPLE-001,"SAMPLE ROW - NOT REAL DATA",,,,,,,,,,,,,,,,,
